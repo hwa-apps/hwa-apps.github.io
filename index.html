@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HWA Apps</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+  <h1><a href="index.html">HWA Apps</a></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="koordkonvert.html">KoordKonvert</a>
+    <a href="hoggps.html">Hog GPS</a>
+    <a href="coords.html">Coordinates</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Language">
+      <img id="current-flag" src="images/eng_us_flag.png" alt="English">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h2>Our Apps</h2>
+    <div class="card-container">
+      <a href="koordkonvert.html" class="card koordkonvert-card">
+        <img src="images/koordkonvert_logo.png" alt="KoordKonvert logo">
+        <h3>KoordKonvert</h3>
+        <p>Convert coordinates between DD, DDM, DMS, UTM, MGRS, EOV easily.</p>
+      </a>
+
+      <a href="hoggps.html" class="card hoggps-card">
+        <img src="images/hoggps_nobackground.png" alt="Hog GPS logo">
+        <h3>Hog GPS</h3>
+        <p>Upcoming GPS app with offline maps, route tracking and GPX support.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>
