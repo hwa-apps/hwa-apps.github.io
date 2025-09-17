@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /sitemap.xml
+Sitemap: https://hwa-apps.github.io/sitemap.xml
