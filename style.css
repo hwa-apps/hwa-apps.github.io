@@ -1,0 +1,247 @@
+/* Alapok */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f4f8;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+/* Fejléc */
+header {
+  background-color: #1f2937;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  margin-left: 2rem;
+}
+
+nav a {
+  margin-right: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Nyelvválasztó — zászlós legördülő */
+.language-selector {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.lang-btn img {
+  width: 40px;  /* végső méret */
+  height: 26px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  padding: 4px;
+}
+
+.lang-dropdown img {
+  width: 40px;
+  height: 26px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.lang-dropdown img:hover {
+  background-color: #f0f0f0;
+}
+
+/* Fő tartalom */
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Kártya konténer */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Kártyák */
+.card {
+  display: block;
+  text-align: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  width: 280px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer; /* mutató minden kártya felett */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card img {
+  max-width: 50%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  .card img {
+    max-width: 70%;
+  }
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Gombok */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 8px;
+  padding: 6px 12px; /* maradjon kis méret */
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+  
+  min-width: 140px;  /* legkisebb szélesség */
+  height: 20px;      /* fix magasság */
+}
+
+
+.button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  object-fit: contain;
+}
+
+/* KoordKonvert kártya */
+.koordkonvert-card, .koordkonvert-button {
+  background-color: #A7DADC;
+  color: #000000;
+  border: 1px solid #3E7C84;
+}
+
+.koordkonvert-card:hover, .koordkonvert-button:hover {
+  background-color: #3E7C84;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Hog GPS kártya */
+.hoggps-card, .hoggps-button {
+  background-color: #CEB393; /* new beige color */
+  color: #333333;           /* darker text for contrast */
+  border: 1px solid #9C7D5E; /* slightly darker border for depth */
+}
+
+.hoggps-card:hover, .hoggps-button:hover {
+  background-color: #9C7D5E; /* darker hover shade */
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #3399ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .language-selector {
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+a.link-real {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+a.link-real:visited {
+  color: #551A8B;
+}
+
