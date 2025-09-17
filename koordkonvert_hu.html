@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KoordKonvert - Koordináta átváltó</title>
+  <meta name="description" content="KoordKonvert: offline koordináta-átváltó Android app MGRS, UTM, DD, DDM, DMS és magyar EOV formátumokhoz.">
+  <meta name="keywords" content="HWA Apps, KoordKonvert, offline GPS, koordináta-átváltás, EOV, MGRS, UTM, DD, DDM, DMS, Android">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="HWA Apps">
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/koordkonvert_hu.html"/>
+  <link rel="alternate" href="https://hwa-apps.github.io/koordkonvert_hu.html" hreflang="hu"/>
+  <link rel="alternate" href="https://hwa-apps.github.io/koordkonvert.html" hreflang="en"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="KoordKonvert - Koordináta átváltó">
+  <meta property="og:description" content="KoordKonvert: offline koordináta-átváltó Android app MGRS, UTM, DD, DDM, DMS és magyar EOV formátumokhoz.">
+  <meta property="og:image" content="https://hwa-apps.github.io/images/koordkonvert_logo.png">
+  <meta property="og:url" content="https://hwa-apps.github.io/koordkonvert_hu.html">
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD App schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "KoordKonvert",
+    "operatingSystem": "Android",
+    "applicationCategory": "UtilityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.flori.koordkonvert",
+    "publisher": {
+      "@type": "Organization",
+      "name": "HWA Apps"
+    }
+  }
+  </script>
+
+
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      overflow-x: auto;               /* mobilon swipe */
+      scroll-snap-type: x mandatory;  /* mindig kép elejére ugrik */
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      gap: 10px;                      /* kis rés a képek közt */
+      padding: 10px;
+    }
+
+    .slides img {
+      flex: 0 0 100%;                 /* mobil: 1 kép */
+      scroll-snap-align: start;
+      border-radius: 8px;
+      object-fit: contain;
+      max-height: 500px;
+    }
+
+    @media (min-width: 768px) {
+      .slides img {
+        flex: 0 0 calc(33.33% - 10px); /* desktop: 3 kép, rés levonva */
+      }
+    }
+
+    .slides::-webkit-scrollbar {
+      display: none; /* ne látszódjon a görgetősáv */
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .prev { left: 0; }
+    .next { right: 0; }
+
+    /* Toggle arrow */
+    .toggle-screenshots::after {
+      content: "▼";
+      display: inline-block;
+      margin-left: 6px;
+      transition: transform 0.3s ease;
+    }
+    .toggle-screenshots.closed::after {
+      transform: rotate(180deg);
+    }
+
+    /* Smooth slide-down/slide-up */
+    .screenshot-gallery {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>
+    <a href="index_hu.html" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none;">
+      <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
+      HWA Apps
+    </a>
+  </h1>
+  <nav>
+    <a href="index_hu.html">Főoldal</a>
+    <a href="koordkonvert_hu.html">KoordKonvert</a>
+    <a href="hoggps_hu.html">Hog GPS</a>
+    <a href="coords_hu.html">Koordináták</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Nyelv">
+      <img id="current-flag" src="images/hun_flag.png" alt="Magyar">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <p>
+      <a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert" class="button koordkonvert-button">
+        <img src="images/google_play_icon.png" alt="Google Play">
+        Google Play Áruház
+      </a>
+    </p>
+
+    <h2 style="display: flex; align-items: center;">
+      <img src="images/koordkonvert_logo.png" alt="KoordKonvert logó" 
+           style="height: 1.2em; margin-right: 6px;">
+      A KoordKonvertről
+    </h2>
+
+    <p><strong>KoordKonvert – A koordináta-átváltó app</strong></p>
+    <p>A KoordKonvert segítségével egyszerűen válthatsz a különböző koordinátaformátumok között, és térképen is megjelenítheted őket. Legyél túrázó, földmérő, katona, rendőr vagy erdész – ez az alkalmazás megkönnyíti a koordináták kezelését. Támogatott: DD, DDM, DMS, UTM, MGRS, EOV (HU) – és hamarosan még több!</p>
+
+    <h3>Főbb jellemzők:</h3>
+    <ul>
+      <li><strong>Koordináta-átváltás:</strong> Pontos és offline DD, DDM, DMS, UTM, MGRS, EOV között.</li>
+      <li><strong>Interaktív térképek:</strong> OpenStreetMap + opcionális Google Térkép (normál, műholdas, hibrid, terep).</li>
+      <li><strong>Helymeghatározás:</strong> GPS alapú pozíciólekérés.</li>
+      <li><strong>Mentés és kezelés:</strong> Kedvencek tárolása időbélyeggel vagy egyedi névvel.</li>
+      <li><strong>Másolás és megosztás:</strong> Eredmények vágólapra egy koppintással.</li>
+      <li><strong>Többnyelvű:</strong> angol, magyar, német, spanyol, lengyel, olasz.</li>
+      <li><strong>Testreszabás:</strong> Beviteli asszisztens, regionális rendszerek, térképtípusok, képernyő-ébrentartás.</li>
+      <li><strong>Hirdetésmentes opció:</strong> Hirdetések eltávolítása + Google Térkép végleges feloldása.</li>
+    </ul>
+
+    <h3>Hogyan működik?</h3>
+    <ol>
+      <li>Add meg vagy kérd le koordinátáidat GPS-szel.</li>
+      <li>Válaszd a bemeneti/kimeneti formátumokat.</li>
+      <li>Koppints a <em>Konvertálás</em> gombra.</li>
+      <li>Nézd meg térképen, másold vagy mentsd.</li>
+    </ol>
+
+    <!-- Screenshot szekció -->
+    <h3 class="toggle-screenshots" style="cursor: pointer;">Képernyőképek</h3>
+    <div class="screenshot-gallery open">
+      <div class="slider">
+        <div class="slides">
+          <img src="images/screenshots/koordkonvert_screenshot1_hu.png" alt="KoordKonvert Screenshot 1">
+          <img src="images/screenshots/koordkonvert_screenshot2_hu.png" alt="KoordKonvert Screenshot 2">
+          <img src="images/screenshots/koordkonvert_screenshot3_hu.png" alt="KoordKonvert Screenshot 3">
+          <img src="images/screenshots/koordkonvert_screenshot4_hu.png" alt="KoordKonvert Screenshot 4">
+          <img src="images/screenshots/koordkonvert_screenshot5_hu.png" alt="KoordKonvert Screenshot 5">
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </div>
+
+    <h3>Miért a KoordKonvert?</h3>
+    <ul>
+      <li>Széles koordinátaformátum-támogatás, köztük a magyar EOV rendszerrel.</li>
+      <li>Offline is működik, ideális terepen vagy gyenge térerő mellett.</li>
+      <li>Letisztult kezelőfelület, gyors használat.</li>
+      <li>Egyedi funkciók: pl. Google Térkép ideiglenes feloldása hirdetés megtekintésével.</li>
+    </ul>
+
+    <h3>Hirdetésmentes használat!</h3>
+    <p>Távolítsd el a hirdetéseket, és oldd fel a prémium funkciókat, mint a Google Térkép, egyszeri vásárlással – vagy nézz egy rövid reklámot az ideiglenes feloldáshoz.</p>
+
+    <p><a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert"><strong>Töltsd le a KoordKonvertet most</strong></a>!</p>
+    <p><strong>Megjegyzés:</strong> A GPS funkcióhoz helymeghatározási engedély szükséges. Adataid biztonságban vannak.</p>
+
+    <p><strong>Kapcsolat:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+    <p><a href="privacy_hu.html">Adatvédelmi tájékoztató</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy_hu.html">Adatvédelmi tájékoztató</a></p>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  const toggle = document.querySelector(".toggle-screenshots");
+  const gallery = document.querySelector(".screenshot-gallery");
+
+  function setGalleryHeight() {
+    if (gallery.classList.contains("open")) {
+      gallery.style.maxHeight = gallery.scrollHeight + "px";
+    } else {
+      gallery.style.maxHeight = "0";
+    }
+  }
+
+  gallery.classList.add("open");
+  toggle.classList.remove("closed");
+  setGalleryHeight();
+
+  toggle.addEventListener("click", () => {
+    const isOpen = gallery.classList.contains("open");
+    gallery.classList.toggle("open", !isOpen);
+    toggle.classList.toggle("closed", isOpen);
+    setGalleryHeight();
+  });
+
+  window.addEventListener("resize", setGalleryHeight);
+
+  // Slider functionality (scroll + arrows)
+  const slides = document.querySelector(".slides");
+  const images = document.querySelectorAll(".slides img");
+
+  function getSlideWidth() {
+    return images[0].clientWidth + 10; // kép szélesség + gap
+  }
+
+  document.querySelector(".next").addEventListener("click", () => {
+    slides.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    slides.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+  });
+</script>
+</body>
+</html>
