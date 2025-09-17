@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hog GPS - Offline Hiking & Military GPS App</title>
+  <meta name="description" content="Hog GPS is an offline hiking and military GPS Android app. Track routes, view offline maps, use GPX, APP-6 symbols, and multiple coordinate formats. Perfect for hikers, soldiers, and outdoor professionals.">
+  <meta name="keywords" content="offline GPS, hiking GPS, Hog GPS, APP-6 symbols, military app, GPX tracks, military maps, map tracking, coordinate formats, HWA Apps, Android">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="HWA Apps">
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/hoggps.html" />
+  <link rel="alternate" href="https://hwa-apps.github.io/hoggps.html" hreflang="en" />
+  <link rel="alternate" href="https://hwa-apps.github.io/hoggps_hu.html" hreflang="hu" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hog GPS - Offline Hiking & Military GPS App">
+  <meta property="og:description" content="Hog GPS is an offline hiking and military GPS Android app. Track routes, view offline maps, use GPX, APP-6 symbols, and multiple coordinate formats.">
+  <meta property="og:image" content="https://hwa-apps.github.io/images/hoggps_logo.png">
+  <meta property="og:url" content="https://hwa-apps.github.io/hoggps.html">
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD App schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Hog GPS",
+    "operatingSystem": "Android",
+    "applicationCategory": "NavigationApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.flori.hoggps",
+    "publisher": {
+      "@type": "Organization",
+      "name": "HWA Apps"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      gap: 10px; /* képek közti térköz */
+      transition: transform 0.3s ease-in-out;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 0; /* felső/alsó térköz */
+    }
+    .slides img {
+      flex-shrink: 0;
+      width: calc(100% - 10px); /* mobilon teljes szélesség gap-pel */
+      scroll-snap-align: start;
+      border-radius: 8px;
+    }
+    @media (min-width: 768px) {
+      .slides img { 
+        width: calc(33.33% - 10px); /* 3 kép laptopon gap-pel */
+      }
+    }
+    .slides::-webkit-scrollbar { display: none; }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 5;
+      border-radius: 50%;
+    }
+    .prev { left: 5px; }
+    .next { right: 5px; }
+
+    /* Toggle arrow */
+    .toggle-screenshots::after {
+      content: "▼";
+      display: inline-block;
+      margin-left: 6px;
+      transition: transform 0.3s ease;
+    }
+    .toggle-screenshots.closed::after {
+      transform: rotate(180deg);
+    }
+
+    /* Smooth slide-down/slide-up */
+    .screenshot-gallery {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1><a href="index.html" style="color: inherit; text-decoration: none;">HWA Apps</a></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="koordkonvert.html">KoordKonvert</a>
+    <a href="hoggps.html">Hog GPS</a>
+    <a href="coords.html">Coordinates</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Language">
+      <img id="current-flag" src="images/eng_us_flag.png" alt="English">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <p>
+      <a href="https://play.google.com/store/apps/details?id=com.flori.hoggps" class="button hoggps-button">
+        <img src="images/google_play_icon.png" alt="Google Play">
+        Google Play Store
+      </a>
+    </p>
+
+    <h2 style="display: flex; align-items: center;">
+      <img src="images/hoggps_logo.png" alt="Hog GPS Logo" style="height: 1.2em; margin-right: 6px;">
+      About Hog GPS
+    </h2>
+
+    <p><strong>Hog GPS – The Hiking & Outdoor GPS App</strong></p>
+    <p> Hog GPS is your ultimate outdoor navigation companion. Whether you are hiking, hunting, training, or exploring, Hog GPS gives you powerful tools to navigate and record your adventures. The app supports downloadable offline maps, so you can rely on it even without internet access. Track your routes, save waypoints, measure distances and areas, or even use military APP-6 symbols for professional applications. All in a lightweight and easy-to-use app.</p>
+
+    <h3>Key Features:</h3>
+    <ul>
+      <li><strong>Offline Maps:</strong> Download OpenStreetMap areas and use them anytime, even without internet access.</li>
+      <li><strong>Multiple Map Types:</strong> OpenStreetMap, Google Maps (Normal, Satellite, Hybrid, Terrain, Dark Mode), plus unique game-inspired designs like GTA and Assassin’s Creed.</li>
+      <li><strong>Tracking:</strong> Record your routes and view detailed paths with distance and time.</li>
+      <li><strong>Waypoints & Notes:</strong> Save locations with custom markers and photos.</li>
+      <li><strong>APP-6 Military Symbols:</strong> Add units, equipment, and control measures directly on the map.</li>
+      <li><strong>Drawing Tools:</strong> Draw routes, circles or areas on the map, with OSM snapping support.</li>
+      <li><strong>Measurements:</strong> Measure distances, perimeters, and areas directly on the map.</li>
+      <li><strong>Import & Export:</strong> Work with GPX, KML, and route files (load or share tracks with others).</li>
+      <li><strong>Multilingual Support:</strong> English, Hungarian, Italian, Spanish, German.</li>
+      <li><strong>Customizable Settings:</strong> Choose coordinate formats: DD, DDM, DMS, UTM, MGRS, USNG (United States National Grid), OSNG (British National Grid), Gauss-Krüger, CH1903+/LV95 (Swiss Grid), and EOV (Hungarian); units; and bearing types (degrees, NATO mils, Russian mils).</li>
+    </ul>
+
+    <h3>How It Works:</h3>
+    <ul>
+      <li>Coming soon...</li>
+    </ul>
+
+    <!-- Screenshots section -->
+    <h3 class="toggle-screenshots" style="cursor: pointer;">Screenshots</h3>
+    <div class="screenshot-gallery open">
+      <div class="slider">
+        <div class="slides">
+          <img src="images/hoggps_screenshot1.png" alt="Hog GPS Screenshot 1">
+          <img src="images/hoggps_screenshot2.png" alt="Hog GPS Screenshot 2">
+          <img src="images/hoggps_screenshot3.png" alt="Hog GPS Screenshot 3">
+          <img src="images/hoggps_screenshot4.png" alt="Hog GPS Screenshot 4">
+          <img src="images/hoggps_screenshot5.png" alt="Hog GPS Screenshot 5">
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </div>
+
+    <h3>Why Hog GPS?</h3>
+    <ul>
+      <li>Works fully offline – perfect for hiking, hunting, or field exercises.</li>
+      <li>Supports advanced mapping and military symbology (APP-6).</li>
+      <li>Lightweight, clean interface optimized for outdoor use.</li>
+      <li>Unique game-inspired map designs for a fun experience.</li>
+    </ul>
+
+    <h3>Get Premium!</h3>
+    <p>Upgrade to premium and unlock all features: offline map downloads, unlimited import/export, exclusive map styles, and an ad-free experience. Or watch ad to temporarily unlock premium tools.</p>
+
+    <p><a href="https://play.google.com/store/apps/details?id=com.flori.hoggps"><strong>Download Hog GPS</strong></a> now and explore the world your way!</p>
+    <p><strong>Note:</strong> Location permission required for GPS tracking. Your data stays private and secure.</p>
+
+    <p><strong>Contact:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+    <p><a href="privacy.html">Privacy Policy</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  const toggle = document.querySelector(".toggle-screenshots");
+  const gallery = document.querySelector(".screenshot-gallery");
+
+  function setGalleryHeight() {
+    if (gallery.classList.contains("open")) {
+      gallery.style.maxHeight = gallery.scrollHeight + "px";
+    } else {
+      gallery.style.maxHeight = "0";
+    }
+  }
+
+  gallery.classList.add("open");
+  toggle.classList.remove("closed");
+  setGalleryHeight();
+
+  toggle.addEventListener("click", () => {
+    const isOpen = gallery.classList.contains("open");
+    gallery.classList.toggle("open", !isOpen);
+    toggle.classList.toggle("closed", isOpen);
+    setGalleryHeight();
+  });
+
+  window.addEventListener("resize", setGalleryHeight);
+
+  // Slider functionality
+  const slides = document.querySelector(".slides");
+  const images = document.querySelectorAll(".slides img");
+  let index = 0;
+
+  function getVisibleCount() {
+    return window.innerWidth >= 768 ? 3 : 1;
+  }
+
+  function updateSlider() {
+    const gap = 10; // ugyanaz, mint CSS gap
+    const slideWidth = slides.clientWidth / getVisibleCount();
+    slides.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
+  }
+
+  document.querySelector(".next").addEventListener("click", () => {
+    if (index < images.length - getVisibleCount()) index++;
+    updateSlider();
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    if (index > 0) index--;
+    updateSlider();
+  });
+
+  window.addEventListener("resize", updateSlider);
+
+  slides.addEventListener("scroll", () => {
+    const slideWidth = slides.clientWidth / getVisibleCount();
+    index = Math.round(slides.scrollLeft / slideWidth);
+  });
+</script>
+</body>
+</html>
