@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>KoordKonvert - Offline Coordinate Converter (DD, DDM, DMS, MGRS, UTM, EOV)</title>
+  
+  <meta name="description" content="KoordKonvert is an offline coordinate converter Android app. Convert between DD, DDM, DMS, UTM, MGRS, EOV formats and view them on maps. Perfect for hikers, surveyors, and professionals.">
+  <meta name="keywords" content="KoordKonvert, coordinate converter, MGRS converter, UTM converter, DD DDM DMS, EOV converter, EOV to GPS, offline coordinate conversion, GPS app, Android">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="HWA Apps">
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/koordkonvert.html" />
+  <link rel="alternate" href="https://hwa-apps.github.io/koordkonvert.html" hreflang="en" />
+  <link rel="alternate" href="https://hwa-apps.github.io/koordkonvert_hu.html" hreflang="hu" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="KoordKonvert - Offline Coordinate Converter">
+  <meta property="og:description" content="Convert between DD, DDM, DMS, UTM, MGRS, EOV coordinates offline. View on maps, save, copy, and share.">
+  <meta property="og:image" content="https://hwa-apps.github.io/images/koordkonvert_logo.png">
+  <meta property="og:url" content="https://hwa-apps.github.io/koordkonvert.html">
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD App schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "KoordKonvert",
+    "operatingSystem": "Android",
+    "applicationCategory": "UtilityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.flori.koordkonvert",
+    "publisher": {
+      "@type": "Organization",
+      "name": "HWA Apps"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      overflow-x: auto;               /* mobilon swipe */
+      scroll-snap-type: x mandatory;  /* mindig kép elejére ugrik */
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      gap: 10px;                      /* kis rés a képek közt */
+      padding: 10px;
+    }
+
+    .slides img {
+      flex: 0 0 100%;                 /* mobil: 1 kép */
+      scroll-snap-align: start;
+      border-radius: 8px;
+      object-fit: contain;
+      max-height: 500px;
+    }
+
+    @media (min-width: 768px) {
+      .slides img {
+        flex: 0 0 calc(33.33% - 10px); /* desktop: 3 kép, rés levonva */
+      }
+    }
+
+    .slides::-webkit-scrollbar {
+      display: none; /* ne látszódjon a görgetősáv */
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .prev { left: 0; }
+    .next { right: 0; }
+
+    /* Toggle arrow */
+    .toggle-screenshots::after {
+      content: "▼";
+      display: inline-block;
+      margin-left: 6px;
+      transition: transform 0.3s ease;
+    }
+    .toggle-screenshots.closed::after {
+      transform: rotate(180deg);
+    }
+
+    /* Smooth slide-down/slide-up */
+    .screenshot-gallery {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1><a href="index.html" style="color: inherit; text-decoration: none;">HWA Apps</a></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="koordkonvert.html">KoordKonvert</a>
+    <a href="hoggps.html">Hog GPS</a>
+    <a href="coords.html">Coordinates</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Language">
+      <img id="current-flag" src="images/eng_us_flag.png" alt="English">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <p>
+      <a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert" class="button koordkonvert-button">
+        <img src="images/google_play_icon.png" alt="Google Play">
+        Google Play Store
+      </a>
+    </p>
+
+    <h2 style="display: flex; align-items: center;">
+      <img src="images/koordkonvert_logo.png" alt="KoordKonvert Logo" style="height: 1.2em; margin-right: 6px;">
+      About KoordKonvert
+    </h2>
+
+    <p><strong>KoordKonvert – The Coordinate Converter App</strong></p>
+    <p>Easily convert between coordinate formats and visualize them on a map with KoordKonvert. Whether you're a hiker, surveyor, soldier, police officer, forester, or geospatial enthusiast, this app simplifies working with coordinates like Decimal Degrees (DD), Decimal Degrees Minutes (DDM), Degrees Minutes Seconds (DMS), UTM (Universal Transverse Mercator), MGRS (Military Grid Reference System), and even regional systems like EOV (Hungary) – more formats coming soon!</p>
+
+    <h3>Key Features:</h3>
+    <ul>
+      <li><strong>Coordinate Conversion:</strong> Precise and OFFLINE conversions between DD, DDM, DMS, UTM, MGRS, and EOV.</li>
+      <li><strong>Interactive Maps:</strong> View coordinates on OpenStreetMap, or unlock Google Maps (Normal, Satellite, Hybrid, Terrain).</li>
+      <li><strong>Get Your Location:</strong> Instantly fetch your current coordinates using GPS.</li>
+      <li><strong>Save & Manage:</strong> Store favorite coordinates with timestamps or custom names.</li>
+      <li><strong>Copy & Share:</strong> Copy converted results to clipboard with one tap.</li>
+      <li><strong>Multilingual Support:</strong> English, Hungarian, German, Spanish, Polish, Italian.</li>
+      <li><strong>Customizable Settings:</strong> Input assistant, regional systems, map types, keep-screen-on mode.</li>
+      <li><strong>Ad-Free Option:</strong> Remove ads and permanently unlock Google Maps.</li>
+    </ul>
+
+    <h3>How It Works:</h3>
+    <ol>
+      <li>Enter or fetch your coordinates using GPS.</li>
+      <li>Select input and output formats from dropdowns.</li>
+      <li>Tap <em>Convert</em> to see instant results.</li>
+      <li>View them on the map, copy or save for later use.</li>
+    </ol>
+
+    <!-- Screenshots section -->
+    <h3 class="toggle-screenshots" style="cursor: pointer;">Screenshots</h3>
+    <div class="screenshot-gallery open">
+      <div class="slider">
+        <div class="slides">
+          <img src="images/screenshots/koordkonvert_screenshot1.png" alt="KoordKonvert coordinate conversion">
+          <img src="images/screenshots/koordkonvert_screenshot2.png" alt="KoordKonvert Save coordinater">
+          <img src="images/screenshots/koordkonvert_screenshot3.png" alt="KoordKonvert Open Street Map">
+          <img src="images/screenshots/koordkonvert_screenshot4.png" alt="KoordKonvert Google Maps">
+          <img src="images/screenshots/koordkonvert_screenshot5.png" alt="KoordKonvert Settings">
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </div>
+
+    <h3>Why KoordKonvert?</h3>
+    <ul>
+      <li>Supports multiple coordinate systems, including Hungary’s EOV.</li>
+      <li>Works fully offline, fast and lightweight – ideal in remote areas.</li>
+      <li>Clean interface for quick and efficient use.</li>
+      <li>Optional Google Maps integration with temporary unlock via ad view.</li>
+    </ul>
+
+    <h3>Go Ad-Free!</h3>
+    <p>Remove ads and unlock premium features like Google Maps with a one-time purchase—or watch a short ad to unlock Google Maps for 3 hours.</p>
+
+    <p><a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert"><strong>Download KoordKonvert</strong></a> now and take control of your coordinates!</p>
+    <p><strong>Note:</strong> Location permission required for GPS. Your data stays private and secure.</p>
+
+    <p><strong>Contact:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+    <p><a href="privacy.html">Privacy Policy</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  const toggle = document.querySelector(".toggle-screenshots");
+  const gallery = document.querySelector(".screenshot-gallery");
+
+  function setGalleryHeight() {
+    if (gallery.classList.contains("open")) {
+      gallery.style.maxHeight = gallery.scrollHeight + "px";
+    } else {
+      gallery.style.maxHeight = "0";
+    }
+  }
+
+  gallery.classList.add("open");
+  toggle.classList.remove("closed");
+  setGalleryHeight();
+
+  toggle.addEventListener("click", () => {
+    const isOpen = gallery.classList.contains("open");
+    gallery.classList.toggle("open", !isOpen);
+    toggle.classList.toggle("closed", isOpen);
+    setGalleryHeight();
+  });
+
+  window.addEventListener("resize", setGalleryHeight);
+
+  // Slider functionality (scroll + arrows)
+  const slides = document.querySelector(".slides");
+  const images = document.querySelectorAll(".slides img");
+
+  function getSlideWidth() {
+    return images[0].clientWidth + 10; // kép szélesség + gap
+  }
+
+  document.querySelector(".next").addEventListener("click", () => {
+    slides.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    slides.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+  });
+</script>
+</body>
+</html>
