@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- English pages -->
+  <url>
+    <loc>https://hwa-apps.github.io/index.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/koordkonvert.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/hoggps.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/coords.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/privacy.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- Hungarian pages -->
+  <url>
+    <loc>https://hwa-apps.github.io/index_hu.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/koordkonvert_hu.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/hoggps_hu.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/coords_hu.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://hwa-apps.github.io/privacy_hu.html</loc>
+    <lastmod>2025-09-17</lastmod>
+    <priority>0.50</priority>
+  </url>
+</urlset>
