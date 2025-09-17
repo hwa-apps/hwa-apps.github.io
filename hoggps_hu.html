@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Hog GPS - Offline túra és katonai GPS app</title>
+  
+  <meta name="description" content="Hog GPS: offline túra- és katonai GPS Android app. Rögzítsd útvonalaidat, használj offline térképeket, GPX fájlokat és APP-6 katonai szimbólumokat. Ideális túrázóknak, katonáknak és terepi szakembereknek.">
+  <meta name="keywords" content="offline GPS, túra GPS, Hog GPS, APP-6 szimbólumok, katonai app, GPX nyomvonal, katonai térképek, útvonal követés, koordináta formátumok, HWA Apps, Android">
+  
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="HWA Apps">
+  
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/hoggps_hu.html" />
+  <link rel="alternate" href="https://hwa-apps.github.io/hoggps_hu.html" hreflang="hu" />
+  <link rel="alternate" href="https://hwa-apps.github.io/hoggps.html" hreflang="en" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hog GPS - Offline túra és katonai GPS app">
+  <meta property="og:description" content="Hog GPS: offline túra- és katonai GPS Android app. Rögzítsd útvonalaidat, használj offline térképeket, GPX fájlokat és APP-6 katonai szimbólumokat.">
+  <meta property="og:image" content="https://hwa-apps.github.io/images/hoggps_logo.png">
+  <meta property="og:url" content="https://hwa-apps.github.io/hoggps_hu.html">
+  <meta property="og:type" content="website">
+  
+  <!-- JSON-LD App schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Hog GPS",
+    "operatingSystem": "Android",
+    "applicationCategory": "NavigationApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.flori.hoggps",
+    "publisher": {
+      "@type": "Organization",
+      "name": "HWA Apps"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      overflow-x: auto;               
+      scroll-snap-type: x mandatory;  
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;        
+      gap: 10px;                      
+      padding: 10px;
+    }
+    .slides img {
+      flex: 0 0 100%;                 
+      scroll-snap-align: start;
+      border-radius: 8px;
+      object-fit: contain;
+      max-height: 500px;
+    }
+    @media (min-width: 768px) {
+      .slides img {
+        flex: 0 0 calc(33.33% - 10px); 
+      }
+    }
+    .slides::-webkit-scrollbar { display: none; }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .prev { left: 0; }
+    .next { right: 0; }
+
+    /* Nyíl ikon */
+    .toggle-screenshots::after {
+      content: "▼";
+      display: inline-block;
+      margin-left: 6px;
+      transition: transform 0.3s ease;
+    }
+    .toggle-screenshots.closed::after {
+      transform: rotate(180deg);
+    }
+
+    /* Animált lenyílás */
+    .screenshot-gallery {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>
+    <a href="index_hu.html" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none;">
+      <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
+      HWA Apps
+    </a>
+  </h1>
+  <nav>
+    <a href="index_hu.html">Főoldal</a>
+    <a href="koordkonvert_hu.html">KoordKonvert</a>
+    <a href="hoggps_hu.html">Hog GPS</a>
+    <a href="coords_hu.html">Koordináták</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Nyelv">
+      <img id="current-flag" src="images/hun_flag.png" alt="Magyar">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <p>
+      <a href="https://play.google.com/store/apps/details?id=com.flori.hoggps" class="button hoggps-button">
+        <img src="images/google_play_icon.png" alt="Google Play">
+        Google Play Áruház
+      </a>
+    </p>
+
+    <h2 style="display: flex; align-items: center;">
+      <img src="images/hoggps_logo.png" alt="Hog GPS logó" style="height: 1.2em; margin-right: 6px;">
+      A Hog GPS-ről
+    </h2>
+
+    <p><strong>Hog GPS – Navigáció a természetben, egyszerűen és pontosan</strong></p>
+    <p>A Hog GPS tökéletes társ a szabadban való navigációhoz. Legyen szó túráról, vadászatról, terepgyakorlatról vagy egyszerű felfedezésről, a Hog GPS széleskörű eszköztárat ad a kezedbe. Az alkalmazás támogatja a letölthető offline térképeket, így internet nélkül is megbízható. Rögzítsd az útvonalaidat, ments útpontokat, mérj távolságot és területet, vagy használj katonai APP-6 szimbólumokat. Mindezt egy letisztult és egyszerűen használható alkalmazásban.</p>
+
+    <h3>Főbb funkciók:</h3>
+    <ul>
+      <li><strong>Offline térképek:</strong> OpenStreetMap területek letöltése és használata internet nélkül.</li>
+      <li><strong>Többféle térképtípus:</strong> OpenStreetMap, Google Maps (Normál, Műhold, Hibrid, Domborzat, Sötét mód), valamint egyedi játékstílusú designok, pl. GTA és Assassin’s Creed.</li>
+      <li><strong>Útvonalrögzítés:</strong> Rögzítsd az útvonalaidat, és nézd meg a megtett távot és az időt.</li>
+      <li><strong>Útpontok és jegyzetek:</strong> Helyek mentése saját jelölőkkel és fotókkal.</li>
+      <li><strong>APP-6 katonai szimbólumok:</strong> Egységek, eszközök és egyéb harcászati jelek elhelyezése a térképen.</li>
+      <li><strong>Rajzeszközök:</strong> Útvonalak, körök vagy területek rajzolása, OSM térképre illesztéssel.</li>
+      <li><strong>Mérések:</strong> Távolság, kerület és terület mérése közvetlenül a térképen.</li>
+      <li><strong>Import & Export:</strong> GPX, KML és útvonal fájlok megosztása és betöltése.</li>
+      <li><strong>Többnyelvű támogatás:</strong> Magyar, angol, olasz, spanyol, német.</li>
+      <li><strong>Testreszabható beállítások:</strong> Koordináta-formátumok: DD, DDM, DMS, UTM, MGRS, USNG (United States National Grid), OSNG (British National Grid), Gauss–Krüger, CH1903+/LV95 (Svájci vetület), valamint EOV (Egységes Országos Vetület); mértékegységek; és irányszögek (fok, NATO MIL, orosz MIL).</li>
+    </ul>
+
+    <h3>Hogyan működik?</h3>
+    <ul>
+      <li>Hamarosan...</li>
+    </ul>
+
+    <!-- Screenshot szekció -->
+    <h3 class="toggle-screenshots" style="cursor: pointer;">Képernyőképek</h3>
+    <div class="screenshot-gallery open">
+      <div class="slider">
+        <div class="slides">
+          <img src="images/hoggps_screenshot1_hu.png" alt="Hog GPS képernyőkép 1">
+          <img src="images/hoggps_screenshot2_hu.png" alt="Hog GPS képernyőkép 2">
+          <img src="images/hoggps_screenshot3_hu.png" alt="Hog GPS képernyőkép 3">
+          <img src="images/hoggps_screenshot4_hu.png" alt="Hog GPS képernyőkép 4">
+          <img src="images/hoggps_screenshot5_hu.png" alt="Hog GPS képernyőkép 5">
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </div>
+
+    <h3>Miért a Hog GPS?</h3>
+    <ul>
+      <li>Teljesen offline is működik – ideális túrázáshoz, vadászathoz vagy terepgyakorlatokhoz.</li>
+      <li>Támogatja a fejlett térképezést és katonai szimbólumokat (APP-6).</li>
+      <li>Könnyű, letisztult felület, kültéri használatra optimalizálva.</li>
+      <li>Egyedi játékstílusú térképek a különleges élményért.</li>
+    </ul>
+
+    <h3>Válts Prémiumra!</h3>
+    <p>Frissíts prémiumra, és használd az összes funkciót: offline térkép letöltés, korlátlan import/export, exkluzív térképstílusok és reklámmentes élmény. Vagy nézz meg egy hirdetést a prémium eszközök ideiglenes feloldásához.</p>
+
+    <p><a href="https://play.google.com/store/apps/details?id=com.flori.hoggps"><strong>Töltsd le most a Hog GPS-t</strong></a>, és fedezd fel a világot!</p>
+    <p><strong>Megjegyzés:</strong> A GPS követéshez helymeghatározási engedély szükséges. Az adataid biztonságban maradnak.</p>
+
+    <p><strong>Kapcsolat:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+    <p><a href="privacy_hu.html">Adatvédelmi nyilatkozat</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy_hu.html">Adatvédelmi nyilatkozat</a></p>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  const toggle = document.querySelector(".toggle-screenshots");
+  const gallery = document.querySelector(".screenshot-gallery");
+
+  function setGalleryHeight() {
+    if (gallery.classList.contains("open")) {
+      gallery.style.maxHeight = gallery.scrollHeight + "px";
+    } else {
+      gallery.style.maxHeight = "0";
+    }
+  }
+
+  gallery.classList.add("open");
+  toggle.classList.remove("closed");
+  setGalleryHeight();
+
+  toggle.addEventListener("click", () => {
+    const isOpen = gallery.classList.contains("open");
+    gallery.classList.toggle("open", !isOpen);
+    toggle.classList.toggle("closed", isOpen);
+    setGalleryHeight();
+  });
+
+  window.addEventListener("resize", setGalleryHeight);
+
+  // Slider: mobil swipe + desktop nyilak
+  const slides = document.querySelector(".slides");
+  const images = document.querySelectorAll(".slides img");
+
+  function getSlideWidth() {
+    return images[0].clientWidth + 10; // kép szélesség + gap
+  }
+
+  document.querySelector(".next").addEventListener("click", () => {
+    slides.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    slides.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+  });
+</script>
+</body>
+</html>

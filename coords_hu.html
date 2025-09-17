@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Koordináták | HWA Apps</title>
+
+  <meta name="description" content="Ismerd meg a földrajzi, UTM, MGRS, EOV, Gauss-Krüger, CH1903+/LV95, USNG és OSNG koordináta-rendszereket. Tanuld meg a DD, DDM, DMS formátumokat és felhasználásukat a földmérésben, katonai alkalmazásokban, túrázásban és offline navigációban.">
+
+  <meta name="keywords" content="koordináták, koordináta rendszerek, DD, DDM, DMS, UTM, MGRS, EOV, Gauss-Krüger, CH1903+, LV95, USNG, OSNG, földrajzi koordináták, katonai rács, offline navigáció, térképi koordináták, földmérés, HWA Apps, GPS">
+
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="HWA Apps"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Koordináták - DD, DDM, DMS, UTM, MGRS, EOV, Gauss-Krüger, CH1903+, USNG, OSNG | HWA Apps"/>
+  <meta property="og:description" content="Ismerd meg a földrajzi, UTM, MGRS, EOV, Gauss-Krüger, CH1903+/LV95, USNG és OSNG koordináta-rendszereket. Tanuld meg a DD, DDM, DMS formátumokat és felhasználásukat a földmérésben, katonai alkalmazásokban, túrázásban és offline navigációban."/>
+  <meta property="og:image" content="https://hwa-apps.github.io/images/hwa_logo.png"/>
+  <meta property="og:url" content="https://hwa-apps.github.io/coords_hu.html"/>
+  <meta property="og:type" content="website"/>
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/coords_hu.html" />
+  <link rel="alternate" href="https://hwa-apps.github.io/coords.html" hreflang="en" />
+  <link rel="alternate" href="https://hwa-apps.github.io/coords_hu.html" hreflang="hu" />
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+<header>
+  <h1>
+    <a href="index_hu.html" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none;">
+      <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
+      HWA Apps
+    </a>
+  </h1>
+  <nav>
+    <a href="index_hu.html">Főoldal</a>
+    <a href="koordkonvert_hu.html">KoordKonvert</a>
+    <a href="hoggps_hu.html">Hog GPS</a>
+    <a href="coords_hu.html">Koordináták</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Nyelv">
+      <img id="current-flag" src="images/hun_flag.png" alt="Magyar">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert" class="button koordkonvert-button">
+    <img src="images/google_play_icon.png" alt="Google Play">
+    KoordKonvert
+  </a>
+
+  <a href="https://play.google.com/store/apps/details?id=com.hwaapps.hoggps" class="button hoggps-button">
+    <img src="images/google_play_icon.png" alt="Google Play">
+    Hog GPS
+  </a>
+
+
+  <section>
+    <h2 style="text-decoration: underline;">Koordináta típusok</h2>
+    <p>Ismerd meg az összes HWA Apps által támogatott koordináta típust: 
+      <a href="#geo" class="link-real">Földrajzi (DD, DDM, DMS)</a>, 
+      <a href="#utm" class="link-real">UTM</a>, 
+      <a href="#mgrs" class="link-real">MGRS</a>, 
+      <a href="#gk" class="link-real">Gauss-Krüger</a>, 
+      <a href="#ch1903" class="link-real">CH1903+/LV95</a>, 
+      <a href="#usng" class="link-real">USNG</a>, 
+      <a href="#osng" class="link-real">OSNG</a>, 
+      <a href="#eov" class="link-real">EOV</a>.
+    </p>
+
+    <h3 id="geo">1) Földrajzi koordináta-rendszer (geodéziai vagy gömbi)</h3>
+    <p>A földrajzi koordináta-rendszer a Föld felszínén egy pont helyét a <strong>szélesség (φ)</strong> és a <strong>hosszúság (λ)</strong> szögeivel határozza meg, fokban mérve. Alapja általában a <strong>WGS84</strong> referenciaellipszoid. A rendszer az Egyenlítőhöz és a greenwichi kezdőmeridiánhoz viszonyít.</p>
+    <h4>Földrajzi szélesség (φ)</h4>
+    <p>A szélesség a Föld középpontja és a pont közötti egyenes, valamint az Egyenlítő síkja által bezárt szög. Értéktartománya 0° (Egyenlítő) és ±90° (Északi-sark: +90°, Déli-sark: -90°). Északi irány pozitív (N), déli irány negatív (S). Az azonos szélességű pontok <strong>szélességi köröket</strong> alkotnak, amelyek az Egyenlítővel párhuzamosak.</p>
+    <h4>Földrajzi hosszúság (λ)</h4>
+    <p>A hosszúság a pont meridiánsíkjának a greenwichi kezdőmeridián síkjával bezárt szöge. Értéktartománya 0° és ±180°. Keleti irány pozitív (E), nyugati irány negatív (W). Az azonos hosszúságú pontok <strong>meridiánokat</strong> alkotnak, amelyek a pólusokon találkoznak.</p>
+    <h4>Megadás formátumai</h4>
+    <p>A koordináták különböző formátumokban adhatók meg:</p>
+    <ul>
+        <li><strong>DD (Tizedes fok):</strong> Tizedes fok, pl. 47.49897°, 19.04360°</li>
+        <li><strong>DDM (Fok, Tizedes szögperc):</strong> Fok és tizedes szögperc, pl. 47° 29.938′ N, 19° 2.616′ E</li>
+        <li><strong>DMS (Fok, Szögperc, Szögmásodperc):</strong> Fok, szögperc, szögmásodperc, pl. 47° 29′ 56″ N, 19° 2′ 37″ E</li>
+    </ul>
+    <p>Példa: A budapesti Lánchíd középpontja <em>47° 29′ 56″ N,19° 02′ 37″ E</em> (DMS), vagy <em>47.49897°, 19.04360°</em> (DD).</p>
+
+    <h3 id="utm">2) UTM – Universal Transverse Mercator (Univerzális Transzverzális Mercator)</h3>
+    <p>Az <strong>UTM</strong> (Universal Transverse Mercator) egy síkbeli vetületi koordináta-rendszer, amely a Föld felszínét 60, egyenként 6° hosszúságú zónára osztja a déli szélesség 80°-tól az északi szélesség 84°-ig. Minden zóna 8°-os szélességi sávokra oszlik, amelyeket C-től X-ig betűkkel jelölnek (az I és O betűk kimaradnak).</p>
+    <h4>Zónák és sávok</h4>
+    <p>A zónák számozása 1-től 60-ig tart, a nemzetközi dátumvonaltól (180°) kelet felé haladva. A szélességi sávok a déli 80°-nál kezdődnek (C) és az északi 84°-nál érnek véget (X). Budapest a <strong>34T</strong> zónában található.</p>
+    <h4>Koordináták meghatározása</h4>
+    <p>Az UTM koordináták méterben adják meg a pont helyzetét a zóna középmeridiánjától (<em>keleti</em>, easting) és az Egyenlítőtől (<em>északi</em>, northing) mért távolság alapján. A középmeridián 500 000 m keleti értékkel bír, hogy elkerüljék a negatív számokat. A déli féltekén az Egyenlítő 10 000 000 m északi értékkel rendelkezik.</p>
+    <p>Példa: A magyar parlament pozíciója UTM-ben: <em>34T 352853 m E, 5263363 m N</em>, ahol a 34T a zóna, 352853 m a keleti, 5263363 m az északi távolság.</p>
+    <h4>Előnyei</h4>
+    <ul>
+        <li>Négyzetes hálórendszer, amely konstans távolságokat biztosít.</li>
+        <li>Nincsenek negatív koordináták.</li>
+        <li>Méter alapú, könnyen számolható távolságok.</li>
+    </ul>
+
+    <h3 id="mgrs">3) MGRS – Military Grid Reference System (Katonai Koordinátahálózati Rendszer)</h3>
+    <p>Az <strong>MGRS</strong> (Military Grid Reference System) a NATO által használt koordináta-rendszer, amely az UTM vetületre épül, de egyedi jelölési rendszert alkalmaz. A Földet 6°-os UTM zónákra és 100×100 km-es négyzetekre osztja, lehetővé téve a pontos helymeghatározást méter alapú koordinátákkal.</p>
+    <h4>Zónák és négyzetek</h4>
+    <p>Az MGRS a 6°-os UTM zónákat (1–60) és 8°-os szélességi sávokat (C–X) használja, amelyeket zónaazonosítóval (pl. 34T) jelöl. Minden zónát 100×100 km-es négyzetekre osztanak, amelyeket két betű (A–Z, I és O nélkül) azonosít, például CT. Budapest a <strong>34TCT</strong> négyzetben található.</p>
+    <h4>Koordináták meghatározása</h4>
+    <p>Az MGRS koordináta három részből áll: zónaazonosító (pl. 34T), négyzetazonosító (pl. CT), és méter alapú eltolás a négyzet délnyugati sarkától (<em>keleti</em> és <em>északi</em>). A pontosság 1 m-től 10 km-ig terjed, attól függően, hány számjegyet használnak.</p>
+    <p>Példa: A magyar parlament pozíciója MGRS-ben: <em>34T CT 52853 63363</em>, ahol 34T a zóna, CT a négyzet, 52853 m a keleti, 63363 m az északi eltolás (1 m pontosság).</p>
+    <p>A pontosság a számjegyek számától függ, az alábbiak szerint:</p>
+    <ul>
+        <li><strong>34T</strong> – csak zónaazonosító, kb. 600×800 km-es terület</li>
+        <li><strong>34T CT</strong> – zóna és 100 km-es négyzet, 100 km-es pontosság</li>
+        <li><strong>34T CT 5 6</strong> – 10 km-es pontosság</li>
+        <li><strong>34T CT 52 63</strong> – 1 km-es pontosság</li>
+        <li><strong>34T CT 528 633</strong> – 100 m-es pontosság</li>
+        <li><strong>34T CT 5285 6336</strong> – 10 m-es pontosság</li>
+        <li><strong>34T CT 52853 63363</strong> – 1 m-es pontosság</li>
+    </ul>
+    <h4>Előnyei</h4>
+    <ul>
+        <li>Egyértelmű és gyors helymeghatározás térképen.</li>
+        <li>Méter alapú, könnyen olvasható koordináták.</li>
+        <li>NATO-standard, széles körben használt katonai és térinformatikai rendszerekben.</li>
+    </ul>
+
+    <h3 id="gk"3>4) Gauss–Krüger vetület</h3>
+    <p>A <strong>Gauss–Krüger vetület</strong> szögtartó, transzverzális hengervetület, amely a transzverzális Mercator-vetületből származik. 
+    Számos európai országban hivatalos térképészeti rendszerként alkalmazták, mielőtt az UTM vált globális szabvánnyá.</p>
+
+    <h4>Vetületi jellemzők</h4>
+    <p>A vetület a Földet keskeny zónákra osztja, jellemzően <strong>3°</strong> vagy <strong>6°</strong> szélességűekre. 
+    Minden zónát egy középmeridián határoz meg, amely környezetében a torzulás minimális. 
+    A koordinátákat méterben adják meg (<em>keleti</em> és <em>északi</em> értékek). 
+    A pozitív tartomány biztosítására <strong>hamis keletit</strong> (általában 500 000 m, vagy nemzeti eltolás) alkalmaznak.</p>
+
+    <h4>Zónák</h4>
+    <p>A zónák számozása a középmeridián hosszúsága alapján történik. Például a <em>3. zóna</em> középmeridiánja a 9° keleti hosszúság, 
+    a <em>4. zónáé</em> a 12° keleti hosszúság. A rendszer országonként eltérően 3° vagy 6° széles zónákat használhat.</p>
+
+    <h4>Alapparaméterek</h4>
+    <ul>
+        <li><strong>Középmeridián</strong> – a vetületi zóna tengelye.</li>
+        <li><strong>Kezdő szélesség</strong> – általában az Egyenlítő (0°).</li>
+        <li><strong>Méretarány-tényező</strong> – jellemzően 1,0000 (egyes változatoknál 0,9999).</li>
+        <li><strong>Hamis keleti érték</strong> – pl. 500 000 m vagy zónafüggő eltolás.</li>
+        <li><strong>Hamis északi érték</strong> – 0 m az északi féltekén.</li>
+    </ul>
+
+    <h4>Használat</h4>
+    <p>A Gauss–Krüger vetület több európai országban (pl. <strong>Németország, Ausztria, Magyarország</strong>) hivatalos térképezési rendszerként működött, 
+    mielőtt áttértek az UTM-re. Németországban például gyakran alkalmazták a <em>3°-os zónabeosztást</em> (2. zóna = 6°K, 3. zóna = 9°K stb.).</p>
+
+    <h4>Pontosság</h4>
+    <p>A vetület szögtartó, vagyis megőrzi a szögeket és a helyi alakokat, ezért alkalmas regionális és nemzeti térképezésre. 
+    Ugyanakkor a torzulás jelentősen növekszik, ha egy pont a középmeridiántól több mint <strong>45°</strong>-ra helyezkedik el, 
+    ezért használják keskeny hosszúsági zónákban.</p>
+
+    <h4>Példa</h4>
+    <p>Az egri vár Gauss–Krüger koordinátái: (4. zóna) E: 253400 m, N: 5987200 m</p>
+
+    <h4>Előnyei</h4>
+    <ul>
+        <li>Szögtartó – megőrzi a helyi alakokat és szögeket.</li>
+        <li>Rugalmas zónaszélesség (3° vagy 6°) a nemzeti igényekhez.</li>
+        <li>Történetileg szabványos és széles körben használt Európában.</li>
+       <li>Méter alapú koordináták, egyszerűen kezelhetők a földmérésben és térképészetben.</li>
+    </ul>
+
+
+    <h3 id="ch1903">5) CH1903+/LV95 – Svájci koordináta-rendszer</h3>
+    <p>A <strong>CH1903+</strong> (LV95) a hivatalos svájci nemzeti koordináta-rendszer, amelyet térképezésre és földmérésre használnak. Ez egy ferde, szögtartó hengervetületi rendszer, az értékek méterben értendők.</p>
+
+    <h4>Tengelyek és kezdőpont</h4>
+    <p>Az LV95 a hagyományos CH1903+ koordinátákat eltolja: <strong>2 000 000 m-et ad az E (keleti) értékhez</strong>, és <strong>1 000 000 m-et az N (északi) értékhez</strong>, így minden koordináta pozitív lesz, és egyszerűen kezelhető digitális rendszerekben.</p>
+
+    <h4>Koordináta formátum</h4>
+    <p>A pontok koordinátái <strong>E</strong> (keleti) és <strong>N</strong> (északi) értékekkel adhatók meg. Példa a Berni Szövetségi Palota koordinátáihoz:</p>
+    <ul>
+        <li>CH1903+: E 600 000 m, N 200 000 m</li>
+        <li>LV95:    E 2 600 000 m, N 1 200 000 m</li>
+    </ul>
+
+    <h4>Előnyök</h4>
+    <ul>
+        <li>Hivatalos svájci szabvány, széles körben alkalmazzák térképezésben, földmérésben és GIS rendszerekben.</li>
+        <li>Méter alapú koordináták a pontos helymeghatározáshoz.</li>
+        <li>Csak pozitív értékek, egyszerűbb adatbázis-kezelés és számítások.</li>
+        <li>Kompatibilis modern GPS és GIS szoftverekkel, CH1903+/LV95 átalakítással.</li>
+    </ul>
+
+    <h4>Használat</h4>
+    <p>Az LV95 Svájc egész területén használatos, például földhivatali térképezéshez, topográfiai térképekhez, infrastruktúra-projektekhez és geoinformatikai elemzésekhez. A CH1903 rendszert felváltotta a pontosabb és egységesebb LV95.</p>
+
+
+    <h3 id="eov">8) EOV – Egységes Országos Vetület</h3>
+    <p>Az <strong>EOV</strong> (Egységes Országos Vetület) a magyarországi földmérési térképek hivatalos vetületi rendszere, amelyet 1975-ben vezettek be. Ferdetengelyű, szögtartó hengervetület, alapfelülete az IUGG 67 ellipszoidon alapuló HD72 dátum.</p>
+    <h4>Vetület és tengelyek</h4>
+    <p>Az EOV az ország területét egyetlen vetülettel fedi le. A koordináta-tengelyek északkeleti tájolásúak: az X tengely északra, az Y tengely keletre mutat. A tengelyek a gellérthegyi alapponton áthaladó meridián és a hozzá merőleges legnagyobb gömbi kör vetített képén alapulnak.</p>
+    <h4>Koordináták meghatározása</h4>
+    <p>A koordinátákat méterben adják meg, mesterséges eltolással (X: +200 000 m, Y: +650 000 m), hogy az ország területe pozitív tartományba essen. Az X érték mindig kisebb, az Y érték mindig nagyobb 400 000 m-nél, így elkerülhető a tengelyek felcserélése.</p>
+    <p>Példa: A gellérthegyi alappont EOV koordinátái: <em>X: 188672 m, Y: 649162 m</em>.</p>
+    <h4>Előnyei</h4>
+    <ul>
+        <li>Egy vetület az egész országra, egyszerűsítve a földmérést.</li>
+        <li>Méter alapú, pontos térképészeti mérésekhez.</li>
+        <li>Széles körben támogatott térinformatikai rendszerekben (SRID: 23700).</li>
+    </ul>
+
+
+  </section>
+
+ <section>
+  <h2 style="text-decoration: underline; margin-top: 3em;">
+    <img src="images/koordkonvert_logo.png" alt="KoordKonvert Logo" style="height:1.5em; vertical-align:middle; margin-right:0.5em;">
+    Offline koordináta-átváltás a KoordKonvert alkalmazással
+  </h2>
+  <p>A <strong>KoordKonvert</strong> alkalmazás lehetőséget biztosít különféle koordináta-rendszerek közötti offline átváltásra. A földmérők, túrázók, katonák, mentők, természetvédők és térinformatikusok számára nélkülözhetetlen eszköz, ha internetkapcsolat nélküli, mégis precíz helymeghatározásra van szükség. A támogatott rendszerek:</p>
+  <ul class="coords-list">
+      <li><span class="abbr">DD</span> – Tizedes fok</li>
+      <li><span class="abbr">DDM</span> – Fok, Tizedes szögperc</li>
+      <li><span class="abbr">DMS</span> – Fok, Szögperc, Szögmásodperc</li>
+      <li><span class="abbr">UTM</span> – Universal Transverse Mercator (Univerzális Transzverzális Mercator)</li>
+      <li><span class="abbr">MGRS</span> – Military Grid Reference System (Katonai Koordinátahálózati Rendszer)</li>
+      <li><span class="abbr">EOV</span> – Egységes Országos Vetület</li>
+  </ul>
+
+  <h3>Miért érdemes a KoordKonvertet használni?</h3>
+  <p>A KoordKonvert egyszerű, gyors és offline elérhető megoldást kínál a földrajzi, UTM, MGRS és EOV koordináták kezelésére és átváltására. Különösen hasznos terepen, hálózati kapcsolat nélkül. Az OpenStreetMap és Google Maps integrációval térképes vizualizáció is elérhető.</p>
+  <p><a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert"><strong>Töltsd le most a KoordKonvertet</strong></a>, és válts át koordinátáidat bárhol, bármikor!</p>
+  <p><strong>Kapcsolat:</strong> <a href="mailto:hwa.apps@gmail.com">hwa.apps@gmail.com</a></p>
+</section>
+
+
+  <section>
+    <h2 style="text-decoration: underline; margin-top: 3em;">
+      <img src="images/hoggps_logo.png" alt="Hog GPS Logo" style="height:1.5em; vertical-align:middle; margin-right:0.5em;">
+      Offline navigáció és további funkciók a Hog GPS alkalmazással
+    </h2>
+    <p>Hamarosan elérhető...</p>
+    <h3>Miért Hog GPS?</h3>
+    <p>Hamarosan...</p>
+    <p><a href="#"><strong>Töltsd le a Hog GPS alkalmazást</strong></a> most, és navigálj offline magabiztosan!</p>
+    <p><strong>Kapcsolat:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy_hu.html">Adatvédelmi nyilatkozat</a></p>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>
