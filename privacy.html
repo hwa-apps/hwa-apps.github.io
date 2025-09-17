@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Privacy Policy - HWA Apps</title>
+  <meta name="description" content="Read the privacy policy for HWA Apps, including KoordKonvert and Hog GPS. Learn how we handle data, ads, billing, and user privacy.">
+  <meta name="robots" content="noindex, follow"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy - HWA Apps"/>
+  <meta property="og:description" content="Learn how HWA Apps handles user privacy, data protection, ads, and billing for KoordKonvert and Hog GPS."/>
+  <meta property="og:image" content="https://hwa-apps.github.io/images/hwa_logo.png"/>
+  <meta property="og:url" content="https://hwa-apps.github.io/privacy.html"/>
+  <meta property="og:type" content="article"/>
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/privacy.html" />
+  <link rel="alternate" href="https://hwa-apps.github.io/privacy.html" hreflang="en" />
+  <link rel="alternate" href="https://hwa-apps.github.io/privacy_hu.html" hreflang="hu" />
+
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .accordion {
+      background-color: #1f2937; color: white; cursor: pointer;
+      padding: 12px; width: 100%; max-width: 800px; margin: 0 auto 10px auto;
+      border: none; text-align: left; outline: none; font-size: 1.2em;
+      transition: background-color 0.3s; display: flex; align-items: center;
+      position: relative; border-radius: 8px;
+    }
+    .accordion img { width: 40px; height: auto; margin-right: 10px; }
+    .accordion:hover { background-color: #374151; }
+    .accordion::after { content: '▼'; position: absolute; right: 15px; font-size: 0.9em; color: white; }
+    .accordion.active::after { content: '▲'; }
+    .accordion-content {
+      max-width: 800px; margin: 0 auto; padding: 0 15px;
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;
+      background-color: white; border: 1px solid #ddd; border-radius: 5px; text-align: left;
+    }
+    .accordion-content p { margin: 10px 0; color: #333; }
+    .last-updated { font-size: 0.9em; color: #666; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>
+    <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+      <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
+      HWA Apps
+    </a>
+  </h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="koordkonvert.html">KoordKonvert</a>
+    <a href="hoggps.html">Hog GPS</a>
+    <a href="coords.html">Coordinates</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Language">
+      <img id="current-flag" src="images/eng_us_flag.png" alt="English">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h2>Privacy Policy</h2>
+    <p>This is the privacy policy for HWA Apps and all associated applications.</p>
+
+    <button class="accordion">
+      <img src="images/koordkonvert_logo.png" alt="KoordKonvert logo">
+      KoordKonvert
+    </button>
+    <div class="accordion-content">
+      <p class="last-updated">Last Updated: March 20, 2025</p>
+      <p><strong>We are committed to protecting user data. This policy outlines how we handle data.</strong></p>
+      <p><strong>Collected Data</strong></p>
+      <p>• Location data (optional)</p>
+      <p>• Purchase history (Google Play Billing)</p>
+      <p>• Saved coordinates (local SQLite)</p>
+      <p>• Device identifiers (Google Ads)</p>
+      <p><strong>Use of Data</strong></p>
+      <p>• App functionality (maps, saving)</p>
+      <p>• Displaying ads (Google Ads)</p>
+      <p><strong>Sharing</strong></p>
+      <p>Google LLC (Maps API, Ads, Billing)</p>
+      <p><strong>Protection</strong></p>
+      <p>HTTPS encryption</p>
+      <p><strong>Deletion</strong></p>
+      <p>Local data removed on uninstall.</p>
+      <p><strong>Contact:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+    </div>
+
+    <button class="accordion">
+      <img src="images/hoggps_logo.png" alt="Hog GPS logo">
+      Hog GPS
+    </button>
+    <div class="accordion-content">
+      <p class="last-updated">Last Updated: (to be added)</p>
+      <p><strong>Privacy policy for Hog GPS will be added here.</strong></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  document.querySelectorAll('.accordion').forEach(acc => {
+    acc.addEventListener('click', () => {
+      const content = acc.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null; acc.classList.remove('active');
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px'; acc.classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>

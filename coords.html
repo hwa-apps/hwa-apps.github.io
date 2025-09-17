@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Coordinates | HWA Apps</title>
+  
+  <meta name="description" content="Learn about geographic, UTM, MGRS, EOV, Gauss-Krüger, CH1903+/LV95, USNG, and OSNG coordinate systems. Understand formats DD, DDM, DMS, and their usage in surveying, military, hiking, and offline navigation.">
+  
+  <meta name="keywords" content="coordinates, coordinate systems, DD, DDM, DMS, UTM, MGRS, EOV, Gauss-Krüger, CH1903+, LV95, USNG, OSNG, geographic coordinates, military grids, offline navigation, map coordinates, surveying, HWA Apps, GPS">
+  
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="HWA Apps"/>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Coordinates - DD, DDM, DMS, UTM, MGRS, EOV, Gauss-Krüger, CH1903+, USNG, OSNG | HWA Apps"/>
+  <meta property="og:description" content="Learn about geographic, UTM, MGRS, EOV, Gauss-Krüger, CH1903+/LV95, USNG, and OSNG coordinate systems. Understand formats DD, DDM, DMS, and their usage in surveying, military, hiking, and offline navigation."/>
+  <meta property="og:image" content="https://hwa-apps.github.io/images/hwa_logo.png"/>
+  <meta property="og:url" content="https://hwa-apps.github.io/coords.html"/>
+  <meta property="og:type" content="website"/>
+  
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/coords.html" />
+  <link rel="alternate" href="https://hwa-apps.github.io/coords.html" hreflang="en" />
+  <link rel="alternate" href="https://hwa-apps.github.io/coords_hu.html" hreflang="hu" />
+  
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+
+<body>
+<header>
+  <h1>
+    <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+      <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
+      HWA Apps
+    </a>
+  </h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="koordkonvert.html">KoordKonvert</a>
+    <a href="hoggps.html">Hog GPS</a>
+    <a href="coords.html">Coordinates</a>
+  </nav>
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Language">
+      <img id="current-flag" src="images/eng_us_flag.png" alt="English">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+
+<a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert" class="button koordkonvert-button">
+  <img src="images/google_play_icon.png" alt="Google Play">
+  KoordKonvert
+</a>
+
+<a href="https://play.google.com/store/apps/details?id=com.hwaapss.hoggps" class="button hoggps-button">
+    <img src="images/google_play_icon.png" alt="Google Play">
+    Hog GPS
+  </a>
+
+
+  <section>
+    <h2 style="text-decoration: underline;">Coordinate Types</h2>
+    <p>Learn about all coordinate types supported by HWA Apps: 
+      <a href="#geo" class="link-real">Geographic (DD, DDM, DMS)</a>, 
+      <a href="#utm" class="link-real">UTM</a>, 
+      <a href="#mgrs" class="link-real">MGRS</a>, 
+      <a href="#gk" class="link-real">Gauss-Krüger</a>, 
+      <a href="#ch1903" class="link-real">CH1903+/LV95</a>, 
+      <a href="#usng" class="link-real">USNG</a>, 
+      <a href="#osng" class="link-real">OSNG</a>, 
+      <a href="#eov" class="link-real">EOV</a>.
+    </p>
+
+    <h3 id="geo">1) Geographic Coordinate System</h3>
+    <p>The geographic coordinate system locates points on Earth using <strong>latitude (φ)</strong> and <strong>longitude (λ)</strong>, measured in degrees. Based on the <strong>WGS84</strong> ellipsoid, it references the Equator and Greenwich Prime Meridian.</p>
+
+    <h4>Latitude (φ)</h4>
+    <p>Latitude measures the angle between a point and the Equator, ranging from 0° (Equator) to ±90° (North Pole: +90°, South Pole: -90°). Northern latitudes are positive (N), southern negative (S). Parallels connect points of equal latitude.</p>
+
+    <h4>Longitude (λ)</h4>
+    <p>Longitude measures the angle from the Greenwich Meridian, ranging from 0° to ±180°. Eastern longitudes are positive (E), western negative (W). Meridians connect points of equal longitude, meeting at the poles.</p>
+
+    <h4>Formats</h4>
+    <p>Coordinates can be expressed as:</p>
+    <ul>
+        <li><strong>DD (Decimal Degrees):</strong> e.g., 40.6892°, -74.0445°</li>
+        <li><strong>DDM (Degrees, Decimal Minutes):</strong> e.g., 40° 41.352′ N, 74° 2.670′ W</li>
+        <li><strong>DMS (Degrees, Minutes, Seconds):</strong> e.g., 40° 41′ 21.12″ N, 74° 2′ 40.20″ W</li>
+    </ul>
+    <p>Example: The Statue of Liberty in New York is approximately <em>N 40° 41′ 21.12″, W 74° 2′ 40.20″</em> (DMS) or <em>40.6892°, -74.0445°</em> (DD).</p>
+
+    <h3 id="utm">2) UTM – Universal Transverse Mercator</h3>
+    <p><strong>UTM</strong> is a planar coordinate system dividing Earth into 60 zones, each 6° wide, from 80°S to 84°N. Zones are split into latitudinal bands (C to X, excluding I and O).</p>
+
+    <h4>Zones and Bands</h4>
+    <p>Zones are numbered 1–60, starting at 180° longitude and moving eastward. Bands span 8° of latitude, from C (80°S) to X (84°N). The Statue of Liberty is in zone <strong>18T</strong>.</p>
+
+    <h4>Coordinates</h4>
+    <p>UTM coordinates are meter-based, measuring <em>easting</em> (distance from the zone’s central meridian) and <em>northing</em> (distance from the Equator). The central meridian is set at 500,000 m easting to avoid negative values.</p>
+    <p>Example: The Statue of Liberty’s UTM coordinates are approximately <em>18T 580731 m E, 4504701 m N</em>,, where 18T is the zone and latitude band, 580731 m is the easting, and 4504701 m is the northing.</p>
+
+    <h4>Advantages</h4>
+    <ul>
+        <li>Grid-based for consistent distances.</li>
+        <li>Meter-based for easy calculations.</li>
+        <li>No negative coordinates.</li>
+    </ul>
+
+    <h3 id="mgrs">3) MGRS – Military Grid Reference System</h3>
+    <p><strong>MGRS</strong> is a NATO-standard system based on UTM, using a grid for precise positioning. It divides Earth into 6° zones and 100×100 km squares.</p>
+
+    <h4>Zones and Squares</h4>
+    <p>MGRS uses UTM zones (1–60) and bands (C–X). Each zone is split into 100×100 km squares, identified by two letters (A–Z, excluding I and O). The Statue of Liberty is in <strong>18TWL</strong>.</p>
+
+    <h4>Coordinates</h4>
+    <p>MGRS coordinates include a zone, square identifier, and meter-based easting/northing offsets. Accuracy ranges from 1 m to 10 km based on digit count.</p>
+    <p>Example: The Statue of Liberty’s MGRS coordinate is <em>18T WL 80731 04701</em> (1 m accuracy), where 18T is the zone and latitude band, WL is the 100 km grid square, 80731 m is the easting offset within the square, and 04701 m is the northing offset within the square.</p>
+
+    <p>Accuracy levels:</p>
+    <ul>
+        <li><strong>18T</strong> – Zone, ~600×800 km</li>
+        <li><strong>18T WL</strong> – 100 km square</li>
+        <li><strong>18T WL 8 0</strong> – 10 km</li>
+        <li><strong>18T WL 80 04</strong> – 1 km</li>
+        <li><strong>18T WL 807 047</strong> – 100 m</li>
+        <li><strong>18T WL 8073 0470</strong> – 10 m</li>
+        <li><strong>18T WL 80731 04701</strong> – 1 m</li>
+    </ul>
+
+    <h4>Advantages</h4>
+    <ul>
+        <li>Fast, map-friendly positioning.</li>
+        <li>Meter-based, readable coordinates.</li>
+        <li>Widely used in military and geospatial applications.</li>
+    </ul>
+
+    <h3 id="gk">4) Gauss–Krüger Projection</h3>
+    <p>The <strong>Gauss–Krüger projection</strong> is a conformal transverse cylindrical projection, derived from the transverse Mercator. 
+    It was widely adopted in Europe and Asia for national mapping systems before UTM became a global standard.</p>
+
+    <h4>Projection Characteristics</h4>
+    <p>The projection divides the Earth into narrow zones, typically <strong>3°</strong> or <strong>6°</strong> wide. 
+    Each zone is defined by a central meridian, around which distortion is minimized. Coordinates are expressed in meters as 
+    <em>easting</em> and <em>northing</em>. A <strong>false easting</strong> (commonly 500,000 m, or other national offset values) ensures all coordinates remain positive.</p>
+
+    <h4>Zones</h4>
+    <p>Zones are numbered based on the longitude of their central meridian. For example, <em>Zone 3</em> is centered on 9°E, 
+    <em>Zone 4</em> on 12°E, and so on. The system can use either 3° or 6° wide zones depending on national standards.</p>
+
+    <h4>Parameters</h4>
+    <ul>
+        <li><strong>Central meridian</strong> – defines the projection zone.</li>
+        <li><strong>Latitude of origin</strong> – usually the Equator (0°).</li>
+        <li><strong>Scale factor</strong> – typically 1.0000 (some variants use 0.9999).</li>
+        <li><strong>False easting</strong> – e.g., 500,000 m or zone-based offsets.</li>
+        <li><strong>False northing</strong> – 0 m in the northern hemisphere.</li>
+    </ul>
+
+    <h4>Usage</h4>
+    <p>The Gauss–Krüger projection was the official mapping system in several European countries, such as <strong>Germany, Austria, and Hungary</strong>, before most transitioned to UTM. In Germany, for instance, the <em>3° zones</em> system was commonly used (Zone 2 = 6°E, Zone 3 = 9°E, etc.).</p>
+
+    <h4>Accuracy</h4>
+    <p>The projection preserves angles (conformal) and is well suited for regional or national mapping. 
+    However, accuracy decreases significantly when used more than about <strong>45° away from the central meridian</strong>, 
+    which is why it is applied in narrow longitudinal zones.</p>
+
+    <h4>Example</h4>
+    <p>The Gauss–Krüger coordinates of the Brandenburg Gate in Berlin are: Zone 4 — E: 4573600 m, N: 5821100 m </p>
+
+    <h4>Advantages</h4>
+    <ul>
+        <li>Conformal – preserves local angles and shapes.</li>
+        <li>Flexible zone width (3° or 6°) for national needs.</li>
+        <li>Historically standardized and widely used in Europe and Asia.</li>
+        <li>Coordinates in meters, easy to handle for surveying and mapping.</li>
+    </ul>
+
+    <h3 id="ch1903">5) CH1903+/LV95 – Swiss Coordinate System</h3>
+    <p><strong>CH1903+</strong> (LV95) is the official Swiss national coordinate system, used for mapping and surveying. It is an oblique, conformal cylindrical projection based on the Bessel ellipsoid, with coordinates expressed in meters.</p>
+
+    <h4>Axes and Origin</h4>
+    <p>LV95 shifts the original CH1903+ coordinates by adding 2,000,000 m to the easting and 1,000,000 m to the northing, ensuring all values are positive and suitable for digital systems.</p>
+
+    <h4>Coordinate Format</h4>
+    <p>Coordinates are given as <strong>E</strong> (Easting) and <strong>N</strong> (Northing), e.g., for the Swiss Federal Palace in Bern:</p>
+    <ul>
+        <li>CH1903+: E 600,000 m, N 200,000 m</li>
+        <li>LV95:    E 2,600,000 m, N 1,200,000 m</li>
+    </ul>
+
+    <h4>Advantages</h4>
+    <ul>
+        <li>Official Swiss standard, widely used in mapping, surveying, and GIS.</li>
+        <li>Meter-based coordinates for precise measurements.</li>
+        <li>Positive-only coordinates simplify database storage and calculations.</li>
+        <li>Compatible with modern GPS and GIS software using CH1903+ / LV95 transformations.</li>
+    </ul>
+
+    <h4>Usage</h4>
+    <p>LV95 is used across Switzerland for cadastral mapping, topographic maps, infrastructure projects, and geospatial analyses. It replaces the older CH1903 system to improve precision and standardization.</p>
+
+
+
+    <h3 id="eov">8) EOV – Hungarian National Grid</h3>
+    <p>The <strong>EOV</strong> (Hungarian National Grid, Egységes Országos Vetület) is Hungary’s official coordinate system for surveying and mapping, introduced in 1975. It is an oblique, conformal cylindrical projection based on the HD72 datum, using the IUGG 67 ellipsoid.</p>
+
+    <h4>Projection and Axes</h4>
+    <p>EOV covers Hungary with a single projection. The coordinate axes are northeast-oriented: the X-axis points north, the Y-axis east, based on a reference meridian passing through a central point and its perpendicular great circle projection.</p>
+
+    <h4>Coordinate Determination</h4>
+    <p>Coordinates are given in meters with artificial offsets (X: +200,000 m, Y: +650,000 m) to ensure positive values across the country. The X value is always less than 400,000 m, and the Y value always greater, preventing axis confusion.</p>
+    <p>Example: The Liberty Statue in Budapest has EOV coordinates: <em>X: 188500 m, Y: 649000 m</em>.</p>
+
+    <h4>Advantages</h4>
+    <ul>
+        <li>Single projection for the entire country, simplifying surveying.</li>
+        <li>Meter-based for precise cartographic measurements.</li>
+        <li>Widely supported in geospatial systems (SRID: 23700).</li>
+    </ul>
+
+
+
+  </section>
+
+
+
+
+  <section>
+    <h2 style="text-decoration: underline; margin-top: 3em;">
+  <img src="images/koordkonvert_logo.png" alt="KoordKonvert Logo" style="height:1.5em; vertical-align:middle; margin-right:0.5em;">
+  Offline Coordinate Conversion with KoordKonvert app
+    </h2>
+    <p><strong>KoordKonvert</strong> offers seamless offline conversion between multiple coordinate systems, making it a vital tool for surveyors, hikers, military personnel, first responders, and geospatial professionals. It ensures accurate positioning even without internet access. Supported systems include:</p>
+
+    <ul class="coords-list">
+        <li><span class="abbr">DD</span> – Decimal Degrees</li>
+        <li><span class="abbr">DDM</span> – Degrees, Decimal Minutes</li>
+        <li><span class="abbr">DMS</span> – Degrees, Minutes, Seconds</li>
+        <li><span class="abbr">UTM</span> – Universal Transverse Mercator</li>
+        <li><span class="abbr">MGRS</span> – Military Grid Reference System</li>
+        <li><span class="abbr">EOV</span> – Hungarian National Grid</li>
+    </ul>
+
+    <h3>Why KoordKonvert?</h3>
+    <p>KoordKonvert provides a fast, offline solution for converting geographic, UTM, MGRS, and EOV coordinates. Ideal for fieldwork, it includes OpenStreetMap and Google Maps for visualization.</p>
+
+    <p><a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert"><strong>Download KoordKonvert</strong></a> now and manage coordinates anywhere!</p>
+    <p><strong>Contact:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+  </section>
+
+
+ <section>
+  <h2 style="text-decoration: underline; margin-top: 3em;">
+    <img src="images/hoggps_logo.png" alt="Hog GPS Logo" style="height:1.5em; vertical-align:middle; margin-right:0.5em;">
+    Offline Navigation & More with Hog GPS app
+  </h2>
+   <p> Coming Soon...</p>
+
+
+  <h3>Why Hog GPS?</h3>
+  <p> Coming Soon...</p>
+
+  <p><a href="#"><strong>Download Hog GPS</strong></a> now and navigate offline with confidence!</p>
+  <p><strong>Contact:</strong> <a href="mailto:hwa.apps@gmail.com">hwa.apps@gmail.com</a></p>
+</section>
+
+
+
+
+</main>
+
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>
