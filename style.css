@@ -21,6 +21,13 @@ header {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: relative;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* HWA Apps és hamburger közti tér */
 }
 
 header h1 {
@@ -34,16 +41,24 @@ header h1 a {
 }
 
 nav {
+  display: flex;
+  align-items: left;
   margin-left: 2rem;
 }
+
 
 nav a {
   margin-right: 1rem;
   color: white;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-/* Nyelvválasztó — zászlós legördülő */
+nav a:hover {
+  color: #60a5fa;
+}
+
+/* Nyelvválasztó */
 .language-selector {
   position: relative;
   margin-left: auto;
@@ -59,7 +74,7 @@ nav a {
 }
 
 .lang-btn img {
-  width: 40px;  /* végső méret */
+  width: 40px;
   height: 26px;
   object-fit: cover;
   border-radius: 3px;
@@ -91,6 +106,16 @@ nav a {
   background-color: #f0f0f0;
 }
 
+/* Hamburger menü gomb */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 /* Fő tartalom */
 main {
   padding: 2rem;
@@ -116,7 +141,7 @@ main {
   padding: 1.5rem;
   width: 280px;
   transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer; /* mutató minden kártya felett */
+  cursor: pointer;
 }
 
 .card:hover {
@@ -153,16 +178,14 @@ main {
   justify-content: center;
   gap: 0.5em;
   border-radius: 8px;
-  padding: 6px 12px; /* maradjon kis méret */
+  padding: 6px 12px;
   font-weight: bold;
   text-decoration: none;
   font-size: 0.9rem;
   transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
-  
-  min-width: 140px;  /* legkisebb szélesség */
-  height: 20px;      /* fix magasság */
+  min-width: 140px;
+  height: 20px;
 }
-
 
 .button img {
   width: 20px;
@@ -187,13 +210,13 @@ main {
 
 /* Hog GPS kártya */
 .hoggps-card, .hoggps-button {
-  background-color: #CEB393; /* new beige color */
-  color: #333333;           /* darker text for contrast */
-  border: 1px solid #9C7D5E; /* slightly darker border for depth */
+  background-color: #A1866F;
+  color: #FEFAF0;
+  border: 1px solid #6D4C41;
 }
 
 .hoggps-card:hover, .hoggps-button:hover {
-  background-color: #9C7D5E; /* darker hover shade */
+  background-color: #6D4C41;
   color: #FFFFFF;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
@@ -219,23 +242,53 @@ footer a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-  header {
+  /* Hamburger gomb megjelenítése */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Navigáció alapból rejtve */
+  nav {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+    background-color: #1f2937;
   }
 
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #333;
+    text-align: left;
+  }
+
+  /* Zászló a jobb felső sarokban */
   .language-selector {
-    margin-top: 0.5rem;
-    margin-left: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0;
   }
 
+  /* Kártyák mobilon */
   .card-container {
     flex-direction: column;
     align-items: center;
   }
 }
 
+/* Header méret mobilon */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
 
+/* Link stílus */
 a.link-real {
   color: #0000EE;
   text-decoration: underline;
@@ -244,4 +297,3 @@ a.link-real {
 a.link-real:visited {
   color: #551A8B;
 }
-

@@ -25,28 +25,34 @@
   <meta property="og:url" content="https://hwa-apps.github.io/index.html">
   <meta property="og:type" content="website">
 
-
-
-
  
   <link rel="stylesheet" href="style.css"/>
 </head>
 
-
 <body>
 <header>
-  <h1>
-    <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
-      <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
-      HWA Apps
-    </a>
-  </h1>
-  <nav>
+  <div class="header-left">
+    <!-- Hamburger gomb -->
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+
+    <!-- Logo + cím együtt linkben -->
+    <h1>
+      <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+        <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
+        HWA Apps
+      </a>
+    </h1>
+  </div>
+
+  <!-- Navigáció -->
+  <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="koordkonvert.html">KoordKonvert</a>
     <a href="hoggps.html">Hog GPS</a>
     <a href="coords.html">Coordinates</a>
   </nav>
+
+  <!-- Nyelvválasztó -->
   <div class="language-selector">
     <button class="lang-btn" aria-label="Language">
       <img id="current-flag" src="images/eng_us_flag.png" alt="English">
@@ -82,5 +88,14 @@
 </footer>
 
 <script src="lang.js"></script>
+
+<script>
+  const toggleButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  toggleButton.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
 </body>
 </html>

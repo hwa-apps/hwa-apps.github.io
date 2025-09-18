@@ -31,18 +31,23 @@
 
 <body>
 <header>
-  <h1>
-    <a href="index_hu.html" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none;">
-      <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
-      HWA Apps
-    </a>
-  </h1>
-  <nav>
+  <div class="header-left">
+    <button class="menu-toggle" aria-label="Menü váltása">☰</button>
+    <h1>
+      <a href="index_hu.html" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none;">
+        <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
+        HWA Apps
+      </a>
+    </h1>
+  </div>
+
+  <nav class="main-nav">
     <a href="index_hu.html">Főoldal</a>
     <a href="koordkonvert_hu.html">KoordKonvert</a>
     <a href="hoggps_hu.html">Hog GPS</a>
     <a href="coords_hu.html">Koordináták</a>
   </nav>
+
   <div class="language-selector">
     <button class="lang-btn" aria-label="Nyelv">
       <img id="current-flag" src="images/hun_flag.png" alt="Magyar">
@@ -61,10 +66,10 @@
     KoordKonvert
   </a>
 
-  <a href="https://play.google.com/store/apps/details?id=com.hwaapps.hoggps" class="button hoggps-button">
-    <img src="images/google_play_icon.png" alt="Google Play">
-    Hog GPS
-  </a>
+<a href="#" class="button hoggps-button" style="opacity:0.6; cursor:not-allowed;">
+  <img src="images/google_play_icon.png" alt="Google Play">
+  2025 ősztől
+</a>
 
 
   <section>
@@ -249,7 +254,8 @@
     <p>Hamarosan elérhető...</p>
     <h3>Miért Hog GPS?</h3>
     <p>Hamarosan...</p>
-    <p><a href="#"><strong>Töltsd le a Hog GPS alkalmazást</strong></a> most, és navigálj offline magabiztosan!</p>
+    <p><span style="opacity:0.7;"><strong>Töltsd le a Hog GPS alkalmazást (2025 ősztől)</strong></span> most, és navigálj offline magabiztosan!</p>
+
     <p><strong>Kapcsolat:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
   </section>
 
@@ -260,5 +266,14 @@
 </footer>
 
 <script src="lang.js"></script>
+
+<script>
+  const toggleButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  toggleButton.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
 </body>
 </html>
