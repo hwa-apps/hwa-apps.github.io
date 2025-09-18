@@ -1,3 +1,4 @@
 User-agent: *
-Allow: /sitemap.xml
+Allow: /
+
 Sitemap: https://hwa-apps.github.io/sitemap.xml
