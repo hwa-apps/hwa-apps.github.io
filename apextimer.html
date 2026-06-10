@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>apeX Timer - Workout & Interval Timer App</title>
+
+  <meta name="description" content="apeX Timer is a customizable workout and interval timer app for Android. Create training sessions, intervals, circuits and more.">
+  <meta name="keywords" content="apeX Timer, interval timer, workout timer, HIIT timer, fitness timer, gym timer, Android">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="HWA Apps">
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/apextimer.html" />
+  <link rel="alternate" href="https://hwa-apps.github.io/apextimer.html" hreflang="en" />
+  <link rel="alternate" href="https://hwa-apps.github.io/apextimer_hu.html" hreflang="hu" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="apeX Timer - Workout & Interval Timer App">
+  <meta property="og:description" content="Customizable workout and interval timer for training, HIIT, gym and fitness activities.">
+  <meta property="og:image" content="https://hwa-apps.github.io/images/apextimer_logo.png">
+  <meta property="og:url" content="https://hwa-apps.github.io/apextimer.html">
+  <meta property="og:type" content="website">
+
+  <!-- JSON-LD App schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "apeX Timer",
+    "operatingSystem": "Android",
+    "applicationCategory": "HealthApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.flori.apextimer",
+    "publisher": {
+      "@type": "Organization",
+      "name": "HWA Apps"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .slides img {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      border-radius: 8px;
+      object-fit: contain;
+      max-height: 500px;
+    }
+
+    @media (min-width: 768px) {
+      .slides img {
+        flex: 0 0 calc(33.33% - 10px);
+      }
+    }
+
+    .slides::-webkit-scrollbar {
+      display: none;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .prev { left: 0; }
+    .next { right: 0; }
+
+    .toggle-screenshots::after {
+      content: "▼";
+      display: inline-block;
+      margin-left: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-screenshots.closed::after {
+      transform: rotate(180deg);
+    }
+
+    .screenshot-gallery {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+  </style>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/apextimer_logo.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/apextimer_logo.png">
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+
+    <h1>
+      <a href="index.html" style="display:flex; align-items:center; gap:8px;">
+        <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height:40px;">
+        HWA Apps
+      </a>
+    </h1>
+  </div>
+
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="koordkonvert.html">KoordKonvert</a>
+    <a href="hoggps.html">Hog GPS</a>
+    <a href="apextimer.html">apeX Timer</a>
+    <a href="coords.html">Coordinates</a>
+  </nav>
+
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Language">
+      <img id="current-flag" src="images/eng_us_flag.png" alt="English">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+
+    <p>
+      <a href="https://play.google.com/store/apps/details?id=com.flori.apextimer"
+         class="button apextimer-button">
+        <img src="images/google_play_icon.png" alt="Google Play">
+        Google Play Store
+      </a>
+    </p>
+
+    <h2 style="display:flex; align-items:center;">
+      <img src="images/apextimer_logo.png"
+           alt="apeX Timer Logo"
+           style="height:1.2em; margin-right:6px;">
+      About apeX Timer
+    </h2>
+
+    <p><strong>apeX Timer – Custom Workout & Interval Timer</strong></p>
+
+    <p>
+      apeX Timer is a powerful and highly customizable interval timer designed for workouts,
+      fitness training, HIIT sessions, circuit training, calisthenics, CrossFit, boxing,
+      running, stretching, and many other activities that require precise time management.
+    </p>
+
+    <p>
+      Create your own training sessions by configuring work, rest, warm-up, cool-down,
+      rounds, sets, and custom intervals exactly the way you want. Whether you're a beginner
+      following a simple routine or an advanced athlete managing complex workout structures,
+      apeX Timer adapts to your training style.
+    </p>
+
+    <p>
+      Save your favorite timer configurations as presets and launch them instantly whenever
+      you train. Name your exercises for individual sets or rounds, edit saved presets at
+      any time, and track your workout history and statistics to stay motivated and monitor
+      your progress over time.
+    </p>
+
+    <p>
+      With a clean interface, audio cues, vibration alerts, and extensive customization
+      options, apeX Timer helps you stay focused on your workout instead of watching the clock.
+    </p>
+
+
+    <h3>Key Features:</h3>
+    <ul>
+      <li><strong>Custom Intervals:</strong> Configure work, rest, warm-up and cool-down durations exactly the way you want.</li>
+      <li><strong>Rounds & Sets:</strong> Create simple or complex workout structures with customizable rounds and sets.</li>
+      <li><strong>Exercise Names:</strong> Assign custom exercise names to individual sets or rounds.</li>
+      <li><strong>Unlimited Presets:</strong> Save, load and edit unlimited workout presets for quick access.</li>
+      <li><strong>Workout Statistics:</strong> Track your workout history and training progress over time.</li>
+      <li><strong>Audio & Vibration Alerts:</strong> Stay informed with audio, vibration and visual feedback during workouts.</li>
+      <li><strong>Dark Mode:</strong> Train comfortably in any lighting conditions.</li>
+      <li><strong>Simple Interface:</strong> Easy to use for beginners while offering advanced customization options.</li>
+    </ul>
+
+    <h3>How It Works:</h3>
+    <ol>
+      <li>Set your desired work, rest, warm-up and cool-down times.</li>
+      <li>Choose the number of sets and rounds, and optionally assign exercise names.</li>
+      <li>Press START and focus on your workout while apeX Timer handles the timing.</li>
+      <li>Save your configuration as a preset for future workouts or load an existing preset and start immediately.</li>
+    </ol>
+
+    <!-- Screenshots -->
+    <h3 class="toggle-screenshots" style="cursor:pointer;">Screenshots</h3>
+
+    <div class="screenshot-gallery open">
+      <div class="slider">
+        <div class="slides">
+          <img src="images/screenshots/apextimer_screenshot1.png" alt="apeX Timer Screenshot 1">
+          <img src="images/screenshots/apextimer_screenshot2.png" alt="apeX Timer Screenshot 2">
+          <img src="images/screenshots/apextimer_screenshot3.png" alt="apeX Timer Screenshot 3">
+          <img src="images/screenshots/apextimer_screenshot4.png" alt="apeX Timer Screenshot 4">
+          <img src="images/screenshots/apextimer_screenshot5.png" alt="apeX Timer Screenshot 5">
+        </div>
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </div>
+
+    <h3>Why apeX Timer?</h3>
+    <ul>
+      <li>Create workout timers exactly the way you want.</li>
+      <li>Save unlimited presets for all your training routines.</li>
+      <li>Stay focused on training instead of watching the clock.</li>
+      <li>Keep track of every exercise with custom set and round names.</li>
+      <li>Suitable for HIIT, calisthenics, CrossFit, boxing, running and more.</li>
+    </ul>
+
+    <h3>Get Premium!</h3>
+    <p>
+      Upgrade to apeX Timer Premium and enjoy an even better training experience.
+    </p>
+    <p>
+      Even the free version avoids disruptive full-screen ads. Premium unlocks a completely ad-free experience by removing the banner.
+    </p>
+    <ul>
+      <li><strong>Ad-Free Experience:</strong> Train without distractions.</li>
+      <li><strong>Lock Screen Support:</strong> Continue using the timer even when your device's screen is locked.</li>
+    </ul>
+
+    <p>
+      <a href="https://play.google.com/store/apps/details?id=com.flori.apextimer">
+        <strong>Download apeX Timer</strong>
+      </a>
+    </p>
+
+    <p><strong>Contact:</strong> <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a></p>
+    <p><a href="privacy.html">Privacy Policy</a></p>
+
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="lang.js"></script>
+
+<script>
+  const toggle = document.querySelector(".toggle-screenshots");
+  const gallery = document.querySelector(".screenshot-gallery");
+
+  function setGalleryHeight() {
+    if (gallery.classList.contains("open")) {
+      gallery.style.maxHeight = gallery.scrollHeight + "px";
+    } else {
+      gallery.style.maxHeight = "0";
+    }
+  }
+
+  gallery.classList.add("open");
+  setGalleryHeight();
+
+  toggle.addEventListener("click", () => {
+    const isOpen = gallery.classList.contains("open");
+    gallery.classList.toggle("open", !isOpen);
+    toggle.classList.toggle("closed", isOpen);
+    setGalleryHeight();
+  });
+
+  window.addEventListener("resize", setGalleryHeight);
+
+  const slides = document.querySelector(".slides");
+  const images = document.querySelectorAll(".slides img");
+
+  function getSlideWidth() {
+    return images[0].clientWidth + 10;
+  }
+
+  document.querySelector(".next").addEventListener("click", () => {
+    slides.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    slides.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+  });
+</script>
+
+<script>
+  const toggleButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  toggleButton.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
+
+</body>
+</html>
