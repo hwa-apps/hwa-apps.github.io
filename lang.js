@@ -11,6 +11,8 @@
     'coords_hu.html':        { en: 'coords.html',            hu: 'coords_hu.html' },
     'privacy.html':          { en: 'privacy.html',           hu: 'privacy_hu.html' },
     'privacy_hu.html':       { en: 'privacy.html',           hu: 'privacy_hu.html' },
+    'apextimer.html':        { en: 'apextimer.html',         hu: 'apextimer_hu.html' },
+    'apextimer_hu.html':     { en: 'apextimer.html',         hu: 'apextimer_hu.html' },
   };
 
   const FLAG_SRC = {

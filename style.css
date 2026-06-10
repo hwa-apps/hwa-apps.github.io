@@ -222,6 +222,22 @@ main {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
+/* apeX Timer kártya */
+.apextimer-card,
+.apextimer-button {
+  background-color: #4CAF50;
+  color: #000000;
+  border: 1px solid #388E3C;
+}
+
+.apextimer-card:hover,
+.apextimer-button:hover {
+  background-color: #388E3C;
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
 /* Footer */
 footer {
   background-color: #1f2937;
@@ -238,6 +254,20 @@ footer a {
 
 footer a:hover {
   color: #3399ff;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /* Responsive */
