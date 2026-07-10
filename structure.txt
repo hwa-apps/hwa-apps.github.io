@@ -1,4 +1,8 @@
 /
+│── about.html
+│── about_hu.html
+│── apextimer.html
+│── apextimer_hu.html
 │── app-ads.txt
 │── coords.html
 │── coords_hu.html 
@@ -20,6 +24,7 @@
     │── koordkonvert_logo.png
     │── hoggps_logo.png
     │── hoggps_nobackground.png
+    │── apextimer_logo.png
     │── hwa_logo.png
     │── eng_us_flag.png
     │── hun_flag.png
@@ -38,6 +43,10 @@
         │── hoggps_screenshot1.png
         │── hoggps_screenshot2.png
         │── hoggps_screenshot3.png
+        │── hoggps_screenshot4.png
+        │── hoggps_screenshot5.png
         │── hoggps_screenshot1_hu.png
         │── hoggps_screenshot2_hu.png
         │── hoggps_screenshot3_hu.png
+        │── hoggps_screenshot4_hu.png
+        │── hoggps_screenshot5_hu.png
