@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>A fejlesztőről | HWA Apps</title>
+
+  <meta name="description" content="Ismerd meg a HWA Apps független fejlesztőjét, valamint a KoordKonvert, Hog GPS és apeX Timer alkalmazások történetét, fejlesztési filozófiáját és küldetését.">
+
+  <meta name="keywords" content="HWA Apps, a fejlesztőről, független fejlesztő, Android alkalmazások, KoordKonvert, Hog GPS, apeX Timer, offline alkalmazások, GPS, koordinátakonvertáló, edzésidőzítő">
+
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="HWA Apps"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="A fejlesztőről | HWA Apps"/>
+  <meta property="og:description" content="Ismerd meg a HWA Apps független fejlesztőjét, valamint a KoordKonvert, Hog GPS és apeX Timer alkalmazások történetét, fejlesztési filozófiáját és küldetését."/>
+  <meta property="og:image" content="https://hwa-apps.github.io/images/hwa_logo.png"/>
+  <meta property="og:url" content="https://hwa-apps.github.io/about_hu.html"/>
+  <meta property="og:type" content="website"/>
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://hwa-apps.github.io/about_hu.html"/>
+  <link rel="alternate" href="https://hwa-apps.github.io/about.html" hreflang="en"/>
+  <link rel="alternate" href="https://hwa-apps.github.io/about_hu.html" hreflang="hu"/>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/hwa_logo.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/hwa_logo.png">
+</head>
+
+<body>
+<header>
+  <div class="header-left">
+    <!-- Hamburger gomb -->
+    <button class="menu-toggle" aria-label="Menü váltása">☰</button>
+
+    <!-- Logo + cím együtt linkben -->
+    <h1>
+      <a href="index_hu.html" style="display: flex; align-items: center; gap: 8px;">
+        <img src="images/hwa_logo.png" alt="HWA Apps logó" style="height: 40px;">
+        HWA Apps
+      </a>
+    </h1>
+  </div>
+
+  <!-- Navigáció -->
+  <nav class="main-nav">
+    <a href="index_hu.html">Főoldal</a>
+    <a href="koordkonvert_hu.html">KoordKonvert</a>
+    <a href="hoggps_hu.html">Hog GPS</a>
+    <a href="apextimer_hu.html">apeX Timer</a>
+    <a href="coords_hu.html">Koordináták</a>
+    <a href="about_hu.html">A fejlesztőről</a>
+  </nav>
+
+  <!-- Nyelvválasztó -->
+  <div class="language-selector">
+    <button class="lang-btn" aria-label="Nyelv">
+      <img id="current-flag" src="images/hun_flag.png" alt="Magyar">
+    </button>
+    <div class="lang-dropdown">
+      <img src="images/eng_us_flag.png" alt="English" data-lang="en">
+      <img src="images/hun_flag.png" alt="Magyar" data-lang="hu">
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <a href="https://play.google.com/store/apps/details?id=com.flori.koordkonvert" class="button koordkonvert-button">
+    <img src="images/google_play_icon.png" alt="Google Play">
+    KoordKonvert
+  </a>
+
+  <a href="https://play.google.com/store/apps/details?id=com.flori.hoggps" class="button hoggps-button">
+    <img src="images/google_play_icon.png" alt="Google Play">
+    Hog GPS
+  </a>
+
+  <a href="https://play.google.com/store/apps/details?id=com.flori.apextimer" class="button apextimer-button">
+    <img src="images/google_play_icon.png" alt="Google Play">
+    apeX Timer
+  </a>
+
+
+<section>
+
+  <h2 style="text-decoration: underline;">A fejlesztőről</h2>
+
+  <p>
+    Egykori oktatóm mondta mindig:
+    <em>"Egy lövésztisztnek mindenhez értenie kell!"</em>
+    <br><br>
+    Erősen kétlem, hogy a hajnali kettőkor végzett Kotlin kódolásra vagy a beágyazott elrendezések hibakeresésére gondolt, de hát itt vagyunk.
+  </p>
+
+  <p>
+    Üdv! Én vagyok a HWA Apps mögött álló egyszemélyes fejlesztőcsapat.
+    Szögezzünk le valamit már az elején:
+    <strong>nem egy techóriás vagyok, és nem is egy dagadt, multis szoftverfejlesztő, aki az utolsó fillért is ki akarja préselni belőled.</strong>
+    Napközben <strong>hivatásos katonatiszt és családapa</strong> vagyok.
+    Éjszakánként viszont az alvásidőmet cserélem forráskódra.
+    Teljesen <strong>autodidakta módon</strong>, magamtól tanultam meg programozni, az appjaimat pedig
+    <strong>a tiszta szükség szülte</strong>.
+    Nem piackutatások vagy bevételi trendek alapján fejlesztek – azért írtam őket, mert saját magamnak volt rájuk szükségem
+    a terepen, és a piacon lévő többi app egyike sem tudta pont azt, amit kerestem.
+  </p>
+
+  <p>
+    Íme a történet az eszközök mögött:
+  </p>
+
+
+  <h3>🧭 KoordKonvert</h3>
+
+  <p>
+    Ezzel indult minden.
+    Amikor a gyakorlótéren dolgoztam, folyamatosan át kellett hidalnom a szakadékot
+    a helyi koordináta-rendszerek és a katonai MGRS koordináták között, hogy zökkenőmentesen tudjunk együttműködni a civil szervezetekkel.
+    Egyszerűen nem létezett olyan megbízható, <strong>teljesen offline alkalmazás</strong> —
+    ami létfontosságú, ha egy <strong>térerő nélküli erdő mélyén vagy</strong> —
+    ami ezt felesleges macera nélkül megoldotta volna.
+    Úgyhogy írtam egyet.
+  </p>
+
+  <p>
+    Először csak saját magamnak és a kollégáknak készült.
+    Aztán kicsit kigatyáztam a dizájnt, és arra gondoltam:
+    <em>„Miért ne oszthatnám meg? Hátha más is térdig a sárban állva próbál épp koordinátát váltani.”</em>
+  </p>
+
+
+  <h3>🐗 Hog GPS</h3>
+
+  <p>
+    Eredetileg a KoordKonvert egy egyszerű frissítéseként indult.
+    Ez az elképzelés nagyjából öt percig élt.
+    Az ötlet villámgyorsan mutálódott egy
+    <strong>hatalmas, önálló szabadtéri navigációs projektté</strong>.
+  </p>
+
+  <p>
+    Több mint egy évnyi szabad estém ment rá a Hog GPS-re.
+    Ennek az időnek a nagy részét nem is gépeléssel, hanem a működés kiötlésével,
+    logikai rejtvények megoldásával és – őszintén szólva –
+    a saját életem értelmének megkérdőjelezésével töltöttem.
+    A végére már annyira meguntam, hogy majdnem megutáltam az egészet –
+    de végül megszületett.
+  </p>
+
+  <p>
+    A Hog GPS azért létezik, mert elegem lett a kompromisszumokból.
+    Az egyik appban volt műholdas térkép és APP-6 katonai jelrendszer, de net kellett hozzá.
+    A másikban jó volt az útvonaltervezés, de hiányzott a műholdas nézet.
+    A harmadikban megvolt minden, de pofátlan havidíjas előfizetés mögé zárták.
+    A Hog GPS egyesít mindent, amire <strong>egy komoly terepi felhasználónak</strong> szüksége van.
+    És igen, van még mit fejleszteni rajta, a jövőben meg is lesz a nagyja!
+  </p>
+
+
+  <h3>⏱️ apeX Timer</h3>
+
+  <p>
+    Ennek az alkalmazásnak a története lényegesen egyszerűbb:
+    <em><strong>„Mert meg tudom csinálni.”</strong></em>
+  </p>
+
+  <p>
+    A Hog GPS kimerítő maratonja után szerettem volna egy kisebb, fókuszáltabb projektet,
+    de ugyanazzal az igényességgel és odafigyeléssel.
+  </p>
+
+  <p>
+    Intervallumidőzítőből rengeteg van a piacon, mégis egyik sem volt pontosan olyan,
+    amilyet használni szerettem volna.
+    Több alkalmazás is jól megoldott bizonyos részeket, de gyakran feleslegesen bonyolultak voltak,
+    vagy olyan alapvető funkciókat is előfizetés mögé rejtettek, amelyeknek egyszerűen elérhetőnek kellene lenniük.
+  </p>
+
+  <p>
+    És persze ott vannak a teljes képernyős reklámok, amelyek időnként megszakítják a használatot,
+    amikor valójában csak egy egyszerű, zavartalan edzésre szeretnél koncentrálni.
+  </p>
+
+  <p>
+    Az apeX Timer filozófiája ennek pont az ellenkezője.
+    <strong>Letisztult, gyors és célratörő.</strong>
+    Minden fontos funkció benne van, semmi felesleges sallang.
+    Nincs korlátozva, hogy hány edzést indíthatsz egy nap, vagy hány saját edzést menthetsz el.
+    Csak elindítod, edzel, és kész.
+  </p>
+
+
+  <h3>Az alapelvem (A „No Bullshit” szabály)</h3>
+
+  <p>
+    Mivel ezek az alkalmazások saját problémáim megoldására születtek,
+    mindegyik HWA alkalmazás ugyanazt az egyszerű filozófiát követi:
+  </p>
+
+  <ul>
+    <li><strong>Valódi problémákat oldanak meg.</strong> Offline működnek, nem merítik az akkumulátort felesleges háttérkövetéssel, és pontosan azt teszik, amit ígérnek.</li>
+    <li><strong>Egyszerűek és praktikusak.</strong> A fő funkciók eléréséhez nincs szükség nevetséges előfizetésekre.</li>
+    <li><strong>Nincsenek idegesítő, teljes képernyős felugró reklámok.</strong> Pont.</li>
+    <li><strong>Kizárólag önkéntes, jutalmazott (rewarded) reklámok vannak</strong> (a KoordKonvert és az apeX Timer esetében). Ha szeretnél feloldani egy extra funkciót, te döntöd el, hogy megnézel-e egy gyors reklámot a projekt támogatására. Ha nem, az alkalmazás ugyanúgy teljes értékűen használható marad.</li>
+  </ul>
+
+  <p>
+    Nem a következő milliárd dolláros startupot akarom felépíteni.
+    Egyszerűen csak olyan alkalmazásokat készítek, amelyeket én magam is használni szerettem volna.
+  </p>
+
+  <p>
+    Köszönöm, hogy támogatod ezt a hobbi projektet!
+    Használd egészséggel, és biztonságos utat kívánok!
+  </p>
+
+
+  <h3>Kapcsolat és támogatás</h3>
+
+  <p>
+    Kérdések, visszajelzések vagy támogatás esetén:
+    <a href="mailto:hwa.apps.dev@gmail.com">hwa.apps.dev@gmail.com</a>
+  </p>
+
+</section>
+</main>
+
+<footer>
+  <p>&copy; 2025 HWA Apps | <a href="privacy_hu.html">Adatvédelmi nyilatkozat</a></p>
+</footer>
+
+<script src="lang.js"></script>
+
+<script>
+  const toggleButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  toggleButton.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
+</body>
+</html>

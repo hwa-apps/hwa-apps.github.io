@@ -13,6 +13,8 @@
     'privacy_hu.html':       { en: 'privacy.html',           hu: 'privacy_hu.html' },
     'apextimer.html':        { en: 'apextimer.html',         hu: 'apextimer_hu.html' },
     'apextimer_hu.html':     { en: 'apextimer.html',         hu: 'apextimer_hu.html' },
+    'about.html':            { en: 'about.html',         hu: 'about_hu.html' },
+    'about_hu.html':         { en: 'about.html',         hu: 'about_hu.html' },
   };
 
   const FLAG_SRC = {
