@@ -155,11 +155,7 @@ main {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 480px) {
-  .card img {
-    max-width: 70%;
-  }
-}
+
 
 .card h3 {
   margin: 0.5rem 0;
@@ -304,11 +300,6 @@ main {
     margin: 0;
   }
 
-  /* Kártyák mobilon */
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 /* Header méret mobilon */
@@ -326,4 +317,46 @@ a.link-real {
 
 a.link-real:visited {
   color: #551A8B;
+}
+
+/* Csak mobilon (480px alatt) lép életbe */
+@media (max-width: 480px) {
+  
+  /* A kártyák tárolóját 2 oszlopos rácsra (Grid) alakítjuk */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+}
+
+.card {
+    width: auto;
+    padding: 1rem 0.5rem;
+    box-sizing: border-box;
+}
+
+.card:last-child {
+    grid-column: 1 / -1;
+    max-width: 260px;
+    justify-self: center;
+}
+
+.card img {
+    max-width: none;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+}
+
+.card h3 {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+}
+
+.card p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-bottom: 0;
 }
