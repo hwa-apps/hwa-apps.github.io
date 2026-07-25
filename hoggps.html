@@ -45,47 +45,61 @@
 
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .slider {
-      position: relative;
-      max-width: 800px;
-      margin: auto;
-      overflow: hidden;
-    }
-    .slides {
-      display: flex;
-      gap: 10px; /* képek közti térköz */
-      transition: transform 0.3s ease-in-out;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding: 10px 0; /* felső/alsó térköz */
-    }
-    .slides img {
-      flex-shrink: 0;
-      width: calc(100% - 10px); /* mobilon teljes szélesség gap-pel */
-      scroll-snap-align: start;
-      border-radius: 8px;
-    }
-    @media (min-width: 768px) {
-      .slides img { 
-        width: calc(33.33% - 10px); /* 3 kép laptopon gap-pel */
-      }
-    }
-    .slides::-webkit-scrollbar { display: none; }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      z-index: 5;
-      border-radius: 50%;
-    }
-    .prev { left: 5px; }
-    .next { right: 5px; }
+  .slider {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 10px;
+}
+
+.slides img {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  border-radius: 8px;
+  object-fit: contain;
+  max-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .slides img {
+    flex: 0 0 calc(33.33% - 10px);
+  }
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
 
     /* Toggle arrow */
     .toggle-screenshots::after {
@@ -117,7 +131,7 @@
 
     <!-- Logo + cím együtt linkben -->
     <h1>
-      <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+       <a href="index_hu.html" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none;">
         <img src="images/hwa_logo.png" alt="HWA Apps Logo" style="height: 40px;">
         HWA Apps
       </a>
@@ -129,7 +143,9 @@
     <a href="index.html">Home</a>
     <a href="koordkonvert.html">KoordKonvert</a>
     <a href="hoggps.html">Hog GPS</a>
+    <a href="apextimer.html">apeX Timer</a>
     <a href="coords.html">Coordinates</a>
+    <a href="about.html">About the Developer</a>
   </nav>
 
   <!-- Nyelvválasztó -->
@@ -172,6 +188,7 @@
       <li><strong>Multiple Map Types:</strong> OpenStreetMap, Google Maps (Normal, Satellite, Hybrid, Terrain, Dark Mode), plus unique game-inspired designs like GTA and Assassin’s Creed.</li>
       <li><strong>Tracking:</strong> Record your routes and view detailed paths with distance and time.</li>
       <li><strong>Waypoints & Notes:</strong> Save locations with custom markers and photos.</li>
+      <li><strong>Hiking Trails:</strong> Turn hiking trail markings on or off to make route planning and navigation easier.</li>
       <li><strong>APP-6 Military Symbols:</strong> Add units, equipment, and control measures directly on the map.</li>
       <li><strong>Drawing Tools:</strong> Draw routes, circles or areas on the map, with OSM snapping support.</li>
       <li><strong>Measurements:</strong> Measure distances, perimeters, and areas directly on the map.</li>
@@ -185,7 +202,7 @@
        <li>Place waypoints, symbols, and photos, or track your movement.</li>
        <li>Use the drawing and measurement tools.</li>
        <li>Save, export, or share your data anytime.</li>
-       <li>Display hiking trails for easier navigation.</li>
+       <li>Enable or disable hiking trail overlays for easier navigation.</li>
        <li>Download an area for offline use.</li>
       <li>Choose the map type, coordinate format, units, and other settings.</li>
     </ul>
@@ -195,11 +212,11 @@
       <div class="screenshot-gallery open">
         <div class="slider">
           <div class="slides">
-            <img src="images/screenshots/hoggps_screenshot1.png" alt="Hog GPS Screenshot 1">
-            <img src="images/screenshots/hoggps_screenshot2.png" alt="Hog GPS Screenshot 2">
-            <img src="images/screenshots/hoggps_screenshot3.png" alt="Hog GPS Screenshot 3">
-            <img src="images/screenshots/hoggps_screenshot4.png" alt="Hog GPS Screenshot 4">
-            <img src="images/screenshots/hoggps_screenshot5.png" alt="Hog GPS Screenshot 5">
+            <img src="images/screenshots/hoggps_screenshot1.png" alt="Hog GPS Detailed hiking trails">
+            <img src="images/screenshots/hoggps_screenshot2.png" alt="Hog GPS Works fully offline">
+            <img src="images/screenshots/hoggps_screenshot3.png" alt="Hog GPS Smart route planning">
+            <img src="images/screenshots/hoggps_screenshot4.png" alt="Hog GPS Navigate to any point">
+            <img src="images/screenshots/hoggps_screenshot5.png" alt="Hog GPS Military-grade symbols">
           </div>
           <button class="prev">❮</button>
           <button class="next">❯</button>
@@ -210,6 +227,7 @@
     <ul>
       <li>Works fully offline – perfect for hiking, hunting, or field exercises.</li>
       <li>Supports advanced mapping and military symbology (APP-6).</li>
+      <li>Switchable hiking trail overlays help you stay on marked routes.</li>
       <li>Lightweight, clean interface optimized for outdoor use.</li>
       <li>Unique game-inspired map designs for a fun experience.</li>
     </ul>
@@ -255,37 +273,27 @@
 
   window.addEventListener("resize", setGalleryHeight);
 
-  // Slider functionality
-  const slides = document.querySelector(".slides");
-  const images = document.querySelectorAll(".slides img");
-  let index = 0;
+  // Slider: mobile swipe + desktop arrows
+const slides = document.querySelector(".slides");
+const images = document.querySelectorAll(".slides img");
 
-  function getVisibleCount() {
-    return window.innerWidth >= 768 ? 3 : 1;
-  }
+function getSlideWidth() {
+  return images[0].clientWidth + 10; // image width + gap
+}
 
-  function updateSlider() {
-    const gap = 10; // ugyanaz, mint CSS gap
-    const slideWidth = slides.clientWidth / getVisibleCount();
-    slides.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
-  }
-
-  document.querySelector(".next").addEventListener("click", () => {
-    if (index < images.length - getVisibleCount()) index++;
-    updateSlider();
+document.querySelector(".next").addEventListener("click", () => {
+  slides.scrollBy({
+    left: getSlideWidth(),
+    behavior: "smooth"
   });
+});
 
-  document.querySelector(".prev").addEventListener("click", () => {
-    if (index > 0) index--;
-    updateSlider();
+document.querySelector(".prev").addEventListener("click", () => {
+  slides.scrollBy({
+    left: -getSlideWidth(),
+    behavior: "smooth"
   });
-
-  window.addEventListener("resize", updateSlider);
-
-  slides.addEventListener("scroll", () => {
-    const slideWidth = slides.clientWidth / getVisibleCount();
-    index = Math.round(slides.scrollLeft / slideWidth);
-  });
+});
 </script>
 
 <script>
@@ -298,8 +306,7 @@
 </script>
 </body>
 </html>
-</body>
-</html>
+
 
 
 

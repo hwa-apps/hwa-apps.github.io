@@ -33,6 +33,7 @@
     "name": "KoordKonvert",
     "operatingSystem": "Android",
     "applicationCategory": "UtilityApplication",
+    "description": "Offline coordinate converter supporting DD, DDM, DMS, UTM, MGRS and EOV formats.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -138,7 +139,9 @@
     <a href="index.html">Home</a>
     <a href="koordkonvert.html">KoordKonvert</a>
     <a href="hoggps.html">Hog GPS</a>
+    <a href="apextimer.html">apeX Timer</a>
     <a href="coords.html">Coordinates</a>
+    <a href="about.html">About the Developer</a>
   </nav>
 
   <!-- Nyelvválasztó -->
@@ -195,10 +198,10 @@
     <div class="screenshot-gallery open">
       <div class="slider">
         <div class="slides">
-          <img src="images/screenshots/koordkonvert_screenshot1.png" alt="KoordKonvert coordinate conversion">
-          <img src="images/screenshots/koordkonvert_screenshot2.png" alt="KoordKonvert Save coordinater">
-          <img src="images/screenshots/koordkonvert_screenshot3.png" alt="KoordKonvert Open Street Map">
-          <img src="images/screenshots/koordkonvert_screenshot4.png" alt="KoordKonvert Google Maps">
+          <img src="images/screenshots/koordkonvert_screenshot1.png" alt="KoordKonvert Coordinate conversion">
+          <img src="images/screenshots/koordkonvert_screenshot2.png" alt="KoordKonvert Show coordinates on map">
+          <img src="images/screenshots/koordkonvert_screenshot3.png" alt="KoordKonvert Google Maps">
+          <img src="images/screenshots/koordkonvert_screenshot4.png" alt="KoordKonvert Saved coordinates">
           <img src="images/screenshots/koordkonvert_screenshot5.png" alt="KoordKonvert Settings">
         </div>
         <button class="prev">❮</button>
@@ -260,7 +263,7 @@
   const images = document.querySelectorAll(".slides img");
 
   function getSlideWidth() {
-    return images[0].clientWidth + 10; // kép szélesség + gap
+    return images[0].getBoundingClientRect().width + 10;
   }
 
   document.querySelector(".next").addEventListener("click", () => {
@@ -282,6 +285,5 @@
 </script>
 </body>
 </html>
-</body>
-</html>
+
 

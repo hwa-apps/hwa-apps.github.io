@@ -31,6 +31,7 @@
     "name": "KoordKonvert",
     "operatingSystem": "Android",
     "applicationCategory": "UtilityApplication",
+    "description": "Offline koordináta átváltó földrajzi (DD, DDM, DMS), UTM, MGRS és EOV formátumokkal.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -133,7 +134,9 @@
     <a href="index_hu.html">Főoldal</a>
     <a href="koordkonvert_hu.html">KoordKonvert</a>
     <a href="hoggps_hu.html">Hog GPS</a>
+    <a href="apextimer_hu.html">apeX Timer</a>
     <a href="coords_hu.html">Koordináták</a>
+    <a href="about_hu.html">A fejlesztőről</a>
   </nav>
 
   <div class="language-selector">
@@ -190,11 +193,11 @@
     <div class="screenshot-gallery open">
       <div class="slider">
         <div class="slides">
-          <img src="images/screenshots/koordkonvert_screenshot1_hu.png" alt="KoordKonvert Screenshot 1">
-          <img src="images/screenshots/koordkonvert_screenshot2_hu.png" alt="KoordKonvert Screenshot 2">
-          <img src="images/screenshots/koordkonvert_screenshot3_hu.png" alt="KoordKonvert Screenshot 3">
-          <img src="images/screenshots/koordkonvert_screenshot4_hu.png" alt="KoordKonvert Screenshot 4">
-          <img src="images/screenshots/koordkonvert_screenshot5_hu.png" alt="KoordKonvert Screenshot 5">
+          <img src="images/screenshots/koordkonvert_screenshot1_hu.png" alt="KoordKonvert koordináta átváltás">
+          <img src="images/screenshots/koordkonvert_screenshot2_hu.png" alt="KoordKonvert koordináta megjelenítése térképen">
+          <img src="images/screenshots/koordkonvert_screenshot3_hu.png" alt="KoordKonvert Google Térkép nézet">
+          <img src="images/screenshots/koordkonvert_screenshot4_hu.png" alt="KoordKonvert mentett koordináták">
+          <img src="images/screenshots/koordkonvert_screenshot5_hu.png" alt="KoordKonvert beállítások">
         </div>
         <button class="prev">❮</button>
         <button class="next">❯</button>
@@ -255,7 +258,7 @@
   const images = document.querySelectorAll(".slides img");
 
   function getSlideWidth() {
-    return images[0].clientWidth + 10; // kép szélesség + gap
+    return images[0].getBoundingClientRect().width + 10;
   }
 
   document.querySelector(".next").addEventListener("click", () => {
