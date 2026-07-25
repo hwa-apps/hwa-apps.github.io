@@ -48,7 +48,87 @@
 
   <link rel="stylesheet" href="style.css"/>
 
-  <link rel="icon" type="image/png" href="images/apextimer_logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/apextimer_logo.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/apextimer_logo.png">
+
+<style>
+.slider {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 10px;
+}
+
+.slides img {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  border-radius: 8px;
+  object-fit: contain;
+  max-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .slides img {
+    flex: 0 0 calc(33.33% - 10px);
+  }
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* Nyíl ikon */
+.toggle-screenshots::after {
+  content: "▼";
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-screenshots.closed::after {
+  transform: rotate(180deg);
+}
+
+/* Animált lenyílás */
+.screenshot-gallery {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+</style>
+
 </head>
 
 <body>
@@ -71,6 +151,7 @@
     <a href="hoggps_hu.html">Hog GPS</a>
     <a href="apextimer_hu.html">apeX Timer</a>
     <a href="coords_hu.html">Koordináták</a>
+    <a href="about_hu.html">A fejlesztőről</a>
   </nav>
 
   <div class="language-selector">
@@ -120,7 +201,9 @@
 <p>
   Mentsd el a kedvenc beállításaidat sablonként, hogy bármikor azonnal elindíthasd őket.
   Nevezd el a gyakorlatokat körönként vagy sorozatonként, szerkeszd a már elmentett edzéseket,
-  és kövesd nyomon a fejlődésedet a részletes statisztikák segítségével.
+  és kövesd nyomon a fejlődésedet részletes statisztikákkal: edzésnapló, összes edzés,
+  edzési sorozatok (streakek), heti és havi összesítések, valamint az előző időszakokkal
+  való összehasonlítás segít motiváltnak maradni.
 </p>
 
 <p>
@@ -134,8 +217,8 @@
   <li><strong>Körök és szettek:</strong> Egyszerűbb és összetettebb edzéstervek rugalmas kialakítása.</li>
   <li><strong>Gyakorlatok elnevezése:</strong> Egyedi neveket adhatsz a körök vagy szettek gyakorlatainak.</li>
   <li><strong>Korlátlan sablon:</strong> Edzésbeállítások mentése, betöltése és szerkesztése korlátlanul a gyors indításhoz.</li>
-  <li><strong>Edzésstatisztikák:</strong> Kövesd nyomon az elvégzett edzéseket és a fejlődésedet hosszú távon is.</li>
-  <li><strong>Hang- és rezgésjelzések:</strong> Hang, rezgő és vizuális figyelmeztetések minden egyes szakaszváltásnál.</li>
+  <li><strong>Edzésstatisztikák:</strong> Kövesd az összes edzésedet, az aktuális streaket, a heti és havi összesítéseket, valamint hasonlítsd össze a fejlődésedet a korábbi időszakokkal.</li>
+  <li><strong>Hang- és rezgésjelzések:</strong> Hangjelzések, rezgések és vizuális visszajelzések minden szakaszváltásnál.</li>
   <li><strong>Sötét mód:</strong> Kényelmes használat és jó olvashatóság bármilyen fényviszony mellett.</li>
   <li><strong>Letisztult kezelőfelület:</strong> Kezdőknek is pofonegyszerű, miközben a haladóknak is teljes szabadságot nyújt.</li>
 </ul>
@@ -171,6 +254,8 @@
   <li>Személyre szabható edzésidőzítő, ami hozzád igazodik.</li>
   <li>Korlátlan számú edzéstervet menthetsz el és használhatsz újra.</li>
   <li>Segít, hogy az edzésre figyelj, ne az órát lesd.</li>
+  <li>Részletes statisztikák, streakek és fejlődési jelentések segítenek fenntartani a motivációdat.</li>
+  <li>Egyedi gyakorlatnevekkel követheted minden kör és sorozat feladatait.</li>
   <li>Szinte bármilyen sporthoz és mozgásformához tökéletes választás.</li>
 </ul>
 
@@ -209,6 +294,55 @@
 </footer>
 
 <script src="lang.js"></script>
+
+<script>
+const toggle = document.querySelector(".toggle-screenshots");
+const gallery = document.querySelector(".screenshot-gallery");
+
+function setGalleryHeight() {
+  if (gallery.classList.contains("open")) {
+    gallery.style.maxHeight = gallery.scrollHeight + "px";
+  } else {
+    gallery.style.maxHeight = "0";
+  }
+}
+
+gallery.classList.add("open");
+toggle.classList.remove("closed");
+setGalleryHeight();
+
+toggle.addEventListener("click", () => {
+  const isOpen = gallery.classList.contains("open");
+  gallery.classList.toggle("open", !isOpen);
+  toggle.classList.toggle("closed", isOpen);
+  setGalleryHeight();
+});
+
+window.addEventListener("resize", setGalleryHeight);
+
+// Slider: mobil swipe + desktop nyilak
+const slides = document.querySelector(".slides");
+const images = document.querySelectorAll(".slides img");
+
+function getSlideWidth() {
+  return images[0].clientWidth + 10;
+}
+
+document.querySelector(".next").addEventListener("click", () => {
+  slides.scrollBy({
+    left: getSlideWidth(),
+    behavior: "smooth"
+  });
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  slides.scrollBy({
+    left: -getSlideWidth(),
+    behavior: "smooth"
+  });
+});
+</script>
+
 
 <script>
   const toggleButton = document.querySelector(".menu-toggle");
