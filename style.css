@@ -122,7 +122,7 @@ main {
   margin: auto;
 }
 
-/* Kártya konténer - Rugalmas egymás mellé / alá rendeződés */
+/* Kártya konténer */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -130,9 +130,12 @@ main {
   justify-content: center;
 }
 
-/* Kártyák */
+/* Kártyák alapstílusa (Asztali / Nagy képernyő) */
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   background-color: white;
   border-radius: 12px;
@@ -304,18 +307,40 @@ main {
   }
 }
 
-/* Mobilos finomhangolások */
-@media (max-width: 480px) {
+/* Mobilos finomhangolások (Garantált 2 oszlopos kártya elrendezés mobilon) */
+@media (max-width: 600px) {
   header h1 {
     font-size: 1.5rem;
   }
 
   main {
-    padding: 1rem 0.5rem; /* Megtartja a 0.5rem oldalsó sávot */
+    padding: 1rem 0.5rem;
+  }
+
+  .card-container {
+    gap: 0.5rem;
+  }
+
+  /* 2 kártya egymás mellett mobilon is */
+  .card {
+    width: calc(50% - 0.5rem);
+    padding: 0.8rem 0.5rem;
   }
 
   .card img {
-    max-width: 70%;
+    max-width: 50px;
+    margin-bottom: 0.5rem;
+  }
+
+  .card h3 {
+    font-size: 0.95rem;
+    margin: 0.3rem 0;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
   }
 }
 
