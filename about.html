@@ -184,6 +184,14 @@
     Thank you for supporting a hobby project! Safe travels out there in the field.
   </p>
 
+  <p>
+    Oh, and if you've actually made it this far:
+    <strong>strictly off the record, 46,334 KoordKonvert Pro purchases or
+    7,179 Hog GPS Premium subscriptions and I can finally afford a
+    727 HP Dodge Challenger SRT Hellcat Widebody.</strong>
+    😎
+    <button class="info-button" onclick="openHellcatModal()" aria-label="Show Hellcat calculation" title="Show calculation">ⓘ</button>
+  </p>
 
   <h3>Contact & Support</h3>
 
@@ -204,6 +212,33 @@
   <p>&copy; 2025 HWA Apps | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
+<!-- D.O.D.G.E. Felugró ablak (Modal) HTML szerkezete -->
+<div id="hellcat-modal" class="modal-overlay" onclick="closeHellcatModalOuter(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeHellcatModal()">&times;</button>
+    <h2>D.O.D.G.E.</h2>
+    <p><strong>Dynamic Operational Deployment Ground Equipment</strong></p>
+    
+    <div class="formula-box" style="text-align: center;">
+      <!-- Itt jelenik meg a gyönyörű, tűéles screenshot -->
+      <img src="images/hellcat_formula.png" alt="ℋ(P, S, g) formula" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px auto;">
+      
+      <h3>Parameters:</h3>
+          <ul class="parameter-list">
+      			<li><strong>H</strong> = $138,500 — target vehicle price</li>
+     			 <li><strong>P</strong> = $2.99 — KoordKonvert Pro</li>
+     			 <li><strong>S</strong> = $14.99 — Hog GPS Premium / year</li>
+    			 <li><strong>g</strong> = 0.15 — Google Play service fee</li>
+    		  </ul>
+    </div>
+
+    <p><strong>Hellcat Acquisition Model v1.0</strong></p>
+    <div class="modal-footer-note">
+      Peer-reviewed by absolutely nobody.
+    </div>
+  </div>
+</div>
+
 <script src="lang.js"></script>
 
 <script>
@@ -213,6 +248,29 @@
   toggleButton.addEventListener("click", () => {
     nav.classList.toggle("show");
   });
+
+  // Modal ablakot kezelő JavaScript logika
+  function openHellcatModal() {
+    document.getElementById("hellcat-modal").style.display = "flex";
+  }
+
+  function closeHellcatModal() {
+    document.getElementById("hellcat-modal").style.display = "none";
+  }
+
+  // Bezárás ESC gomb megnyomására
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      closeHellcatModal();
+    }
+  });
+
+  // Bezárás a modal ablakon kívüli sötétített területre kattintva
+  function closeHellcatModalOuter(event) {
+    if (event.target.id === "hellcat-modal") {
+      closeHellcatModal();
+    }
+  }
 </script>
 </body>
 </html>

@@ -219,6 +219,14 @@
     Használd egészséggel, és biztonságos utat kívánok!
   </p>
 
+ <p>
+    Ja, és ha már idáig eljutottál:
+    <strong>egymás közt szólva, 46 334 KoordKonvert Pro vásárlás vagy
+    7 179 Hog GPS Premium előfizetés, és végre megengedhetek magamnak egy
+    727 lóerős Dodge Challenger SRT Hellcat Widebody-t.</strong>
+    😎
+    <button class="info-button" onclick="openHellcatModal()" aria-label="Számítás mutatása" title="Számítás mutatása">ⓘ</button>
+  </p>
 
   <h3>Kapcsolat és támogatás</h3>
 
@@ -239,6 +247,32 @@
   <p>&copy; 2025 HWA Apps | <a href="privacy_hu.html">Adatvédelmi nyilatkozat</a></p>
 </footer>
 
+<!-- D.O.D.G.E. Felugró ablak (Modal) HTML szerkezete -->
+<div id="hellcat-modal" class="modal-overlay" style="display: none !important; position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; background-color: rgba(0, 0, 0, 0.5) !important; z-index: 99999 !important; justify-content: center !important; align-items: center !important; padding: 20px; box-sizing: border-box;" onclick="closeHellcatModalOuter(event)">
+  <div class="modal-content" style="background-color: #ffffff !important; color: #333333 !important; font-family: 'Segoe UI', Arial, sans-serif !important; padding: 30px; border-radius: 12px; max-width: 480px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; box-sizing: border-box; text-align: left;">
+    <button class="modal-close" onclick="closeHellcatModal()">&times;</button>
+    <h2>D.O.D.G.E.</h2>
+    <p><strong>Dinamikus Operatív Diszlokációs Gyorshajtási Eszköz</strong></p>
+    
+    <div class="formula-box" style="text-align: center;">
+      <!-- A bevált screenshot kép -->
+      <img src="images/hellcat_formula.png" alt="ℋ(P, S, g) képlet" style="max-width: 100%; height: auto; display: block; margin: 0 auto 15px auto;">
+      
+      <h3>Paraméterek:</h3>
+      <ul class="parameter-list">
+        <li><strong>H</strong> = 38,990,000 HUF — céljármű vételára</li>
+        <li><strong>P</strong> = 990 HUF — KoordKonvert Pro</li>
+        <li><strong>S</strong> = 6,390 HUF — Hog GPS Premium / év</li>
+        <li><strong>g</strong> = 0.15 — Google Play szolgáltatási díj (jutalék)</li>
+      </ul>
+    </div>
+
+    <p><strong>Hellcat Beszerzési Modell v1.0</strong></p>
+    <div class="modal-footer-note">
+      Szakmailag ellenőrizte: abszulút senki.
+    </div>
+  </div>
+</div>
 <script src="lang.js"></script>
 
 <script>
@@ -248,6 +282,31 @@
   toggleButton.addEventListener("click", () => {
     nav.classList.toggle("show");
   });
+
+  // Modal ablakot kényszerítve kezelő JavaScript logika
+  function openHellcatModal() {
+    const modal = document.getElementById("hellcat-modal");
+    modal.style.setProperty("display", "flex", "important");
+  }
+
+  function closeHellcatModal() {
+    const modal = document.getElementById("hellcat-modal");
+    modal.style.setProperty("display", "none", "important");
+  }
+
+  // Bezárás ESC gomb megnyomására
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      closeHellcatModal();
+    }
+  });
+
+  // Bezárás a modal ablakon kívüli sötétített területre kattintva
+  function closeHellcatModalOuter(event) {
+    if (event.target.id === "hellcat-modal") {
+      closeHellcatModal();
+    }
+  }
 </script>
 </body>
 </html>
